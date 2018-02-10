@@ -19,6 +19,7 @@ public class App {
         enter(andrey);
         enter(nastya);
         enter(dima);
+
     }
 
     private static void go(Student someone) {
