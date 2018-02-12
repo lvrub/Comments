@@ -16,18 +16,20 @@ public class App {
         TwoTrainings[1] = "TrainerTwo";
 
         Subject git = new GitSyllabus();
-        //Subject cake = new BakeCake();
+        Subject cake = new BakeCake();
 
-        go(andrey, git);
-        go(nastya, git);
-        go(dima, git);
+
         room.accept(andrey);
         room.accept(nastya);
         room.accept(dima);
+        go(andrey, git);
+        go(nastya, git);
+        go(dima, git);
         do_1(petrova, git);
         do_1(ivanova, git);
+        do_1(petrova, cake);
+        do_1(ivanova, cake);
     }
-
 
     private static void go(Student someone, Subject subject) {
         System.out.println(String.format("This is %s in the room!", someone.name()));
@@ -38,6 +40,8 @@ public class App {
         System.out.println(String.format("The teacher %s is in the room too!", person.name()));
         person.teach(subject);
     }
+
+
 
 
 
