@@ -7,8 +7,8 @@ public class TeacherForStudent implements Teacher {
         teacher = name;
     }
 
-    public void teach() {
-        System.out.println(teacher + " is teacher for all student");
+    public void teach(Subject subject) {
+        subject.teachedBy(this);
     }
 
     public String name() {

@@ -11,30 +11,39 @@ public class App {
         //RoomImplementaton a;    or RoomImplementaton a =  new RoomImplementaton();
         //a= new RoomImplementaton();
         Room room = new RoomImplementaton();
-        go(andrey);
-        go(nastya);
-        go(dima);
-        do_1(petrova);
-        do_1(ivanova);
-        enter(andrey);
-        enter(nastya);
-        enter(dima);
+        String[] TwoTrainings = new String[2];
+        TwoTrainings[0] = "TrainerOne";
+        TwoTrainings[1] = "TrainerTwo";
 
+        Subject git = new GitSyllabus();
+        //Subject cake = new BakeCake();
+
+        go(andrey, git);
+        go(nastya, git);
+        go(dima, git);
+        room.accept(andrey);
+        room.accept(nastya);
+        room.accept(dima);
+        do_1(petrova, git);
+        do_1(ivanova, git);
     }
 
-    private static void go(Student someone) {
+
+    private static void go(Student someone, Subject subject) {
         System.out.println(String.format("This is %s in the room!", someone.name()));
-        someone.learn();
+        someone.learn(subject);
     }
 
-    private static void do_1(Teacher person) {
+    private static void do_1(Teacher person, Subject subject) {
         System.out.println(String.format("The teacher %s is in the room too!", person.name()));
-        person.teach();
+        person.teach(subject);
     }
 
-    private static void enter(Person room) {
+
+
+    /*private static void enter(Person room) {
         String text = (room.name() + " went into the room");
         System.out.println(text);
-    }
+    }*/
 
 }
