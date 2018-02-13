@@ -8,27 +8,22 @@ public class App {
         Student dima = new BadStudent("Dima");
         Teacher petrova = new TeacherForStudent("Olga Petrova");
         Teacher ivanova = new TeacherForStudent("Olga Ivanova");
-        //RoomImplementaton a;    or RoomImplementaton a =  new RoomImplementaton();
-        //a= new RoomImplementaton();
-        Room room = new RoomImplementaton();
-        String[] TwoTrainings = new String[2];
-        TwoTrainings[0] = "TrainerOne";
-        TwoTrainings[1] = "TrainerTwo";
+        //RoomOne a;    or RoomOne a =  new RoomOne();
+        //a= new RoomOne();
+        Room room = new RoomOne();
 
         Subject git = new GitSyllabus();
         Subject cake = new BakeCake();
-
 
         room.accept(andrey);
         room.accept(nastya);
         room.accept(dima);
         go(andrey, git);
-        go(nastya, git);
+        go(nastya, cake);
         go(dima, git);
         do_1(petrova, git);
-        do_1(ivanova, git);
-        do_1(petrova, cake);
         do_1(ivanova, cake);
+
     }
 
     private static void go(Student someone, Subject subject) {
