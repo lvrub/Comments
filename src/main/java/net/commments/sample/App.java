@@ -36,10 +36,6 @@ public class App {
         person.teach(subject);
     }
 
-
-
-
-
     /*private static void enter(Person room) {
         String text = (room.name() + " went into the room");
         System.out.println(text);
