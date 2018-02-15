@@ -10,7 +10,15 @@ public class App {
         Teacher ivanova = new TeacherForStudent("Olga Ivanova");
         //RoomOne a;    or RoomOne a =  new RoomOne();
         //a= new RoomOne();
-        Room room = new RoomOne();
+        Room room = new RoomOne(2);
+
+//        List student = new ArrayList();
+//        student.add("Ivan");
+//        student.add("Ann");
+//        student.add("Tim");
+//        }
+
+
 
         Subject git = new GitSyllabus();
         Subject cake = new BakeCake();
@@ -20,7 +28,7 @@ public class App {
         room.accept(dima);
         go(andrey, git);
         go(nastya, cake);
-        go(dima, git);
+        go(dima, cake);
         do_1(petrova, git);
         do_1(ivanova, cake);
 
