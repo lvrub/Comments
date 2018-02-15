@@ -1,7 +1,7 @@
 package net.commments.sample;
 
 public class TeacherForStudent implements Teacher {
-    public final String teacher;
+    private final String teacher;
 
     public TeacherForStudent(String name) {
         teacher = name;

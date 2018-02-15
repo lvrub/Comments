@@ -8,7 +8,6 @@ public class AttentetiveStudent implements Student {
     }
 
     public void learn(Subject subject) {
-
         subject.studiedBy(this);
     }
 
