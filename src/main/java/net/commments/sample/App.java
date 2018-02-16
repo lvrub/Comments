@@ -1,52 +1,47 @@
 package net.commments.sample;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
     public static void main(String[] args) {
 
         Student andrey = new AttentetiveStudent("Andrey");
         Student nastya = new AttentetiveStudent("Nastya");
         Student dima = new BadStudent("Dima");
-        Teacher petrova = new TeacherForStudent("Olga Petrova");
-        Teacher ivanova = new TeacherForStudent("Olga Ivanova");
-        //RoomOne a;    or RoomOne a =  new RoomOne();
-        //a= new RoomOne();
+        Teacher petrova = new TeacherForStudent("Petrova ");
+        Teacher ivanova = new TeacherForStudent("Ivanova ");
+
         Room room = new RoomOne(2);
-
-//        List student = new ArrayList();
-//        student.add("Ivan");
-//        student.add("Ann");
-//        student.add("Tim");
-//        }
-
-
-
         Subject git = new GitSyllabus();
         Subject cake = new BakeCake();
 
-        room.accept(andrey);
-        room.accept(nastya);
-        room.accept(dima);
-        go(andrey, git);
-        go(nastya, cake);
-        go(dima, cake);
-        do_1(petrova, git);
-        do_1(ivanova, cake);
+        List<Student> student = new ArrayList();
+        student.add(andrey);
+        student.add(nastya);
+        student.add(dima);
 
+        for (int i = 0; i < student.size(); i++) {
+            room.accept(student.get(i));
+            come(student.get(i), git);
+        }
+
+        List<Teacher> teacher = new ArrayList();
+        teacher.add(petrova);
+        teacher.add(ivanova);
+
+        do1(teacher.get(0), git);
+        do1(teacher.get(1), cake);
     }
 
-    private static void go(Student someone, Subject subject) {
+    private static void come(Student someone, Subject subject) {
         System.out.println(String.format("This is %s in the room!", someone.name()));
         someone.learn(subject);
     }
 
-    private static void do_1(Teacher person, Subject subject) {
+    private static void do1(Teacher person, Subject subject) {
         System.out.println(String.format("The teacher %s is in the room too!", person.name()));
         person.teach(subject);
     }
-
-    /*private static void enter(Person room) {
-        String text = (room.name() + " went into the room");
-        System.out.println(text);
-    }*/
 
 }

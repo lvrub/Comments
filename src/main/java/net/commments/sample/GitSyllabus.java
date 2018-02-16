@@ -1,6 +1,7 @@
 package net.commments.sample;
 
 public class GitSyllabus implements Subject {
+
     public void teachedBy(Teacher teacher) {
         System.out.println(teacher.name() + " teaches GIT");
     }
