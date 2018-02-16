@@ -8,7 +8,7 @@ public class AttentetiveStudent implements Student {
     }
 
     public void learn(Subject subject) {
-        subject.studiedBy(this);
+        subject.studiedBy(this);  //i need some clarification here
     }
 
     public String name() {
