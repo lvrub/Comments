@@ -6,11 +6,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-/**
- * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @version $Id$
- * @since ?????
- */
 public class Test4 {
 
     private final WebDriver[] driver = new WebDriver[1];
@@ -27,7 +22,7 @@ public class Test4 {
 
     @BeforeMethod
     public void createDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\src\\main\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\src\\main\\resources\\chromedriver.exe");
         driver[0] = new ChromeDriver();
     }
 
