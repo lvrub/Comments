@@ -1,5 +1,3 @@
-package net.commments.sample;
-
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,7 +27,7 @@ public class Test4 {
 
     @BeforeMethod
     public void createDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\src\\main\\chromedriver.exe");
         driver[0] = new ChromeDriver();
     }
 
