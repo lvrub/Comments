@@ -37,8 +37,7 @@ public class Test8 {
         Select Statuse1 = new Select(this.driver().findElement(By.id("SelectedStatus")));
         Statuse1.selectByIndex(1);
         this.driver().findElements(By.id("applybutton")).get(0).click();
-
-
+        final String page1 = this.driver().getPageSource();
         MatcherAssert.assertThat("Comment Text 0 is present", !page1.contains("Comment Text 0"));
 
     }
@@ -47,7 +46,6 @@ public class Test8 {
     public void createDriver() {
 //     driver[0] = new FirefoxDriver();
         driver[0] = new ChromeDriver();
-
     }
 
     @AfterMethod
