@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,7 +23,7 @@ public class Test8 {
         Select SelectAnAction = new Select(this.driver().findElement(By.id("commandSelect")));
         SelectAnAction.selectByIndex(2);
 
-        String table = this.driver().findElement(By.xpath("/html[1]/body[1]/div[1]/section[1]/div[1]/div[5]/form[1]/table[1]/tbody[1]/tr[2]/td[4]")).getText();
+        String table = this.driver().findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
         assertEquals(table, "V");
 //        System.out.println(table);
 
@@ -48,11 +47,10 @@ public class Test8 {
         driver[0] = new ChromeDriver();
     }
 
-    @AfterMethod
-    public void closeDriver() {
-        driver[0].quit();
-
-    }
+//    @AfterMethod
+//    public void closeDriver() {
+//        driver[0].quit();
+//    }
 
     private WebDriver driver() {
         return this.driver[0];
