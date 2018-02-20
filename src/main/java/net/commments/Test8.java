@@ -11,8 +11,6 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-//import org.openqa.selenium.firefox.FirefoxDriver;
-
 public class Test8 {
 
     private final WebDriver[] driver = new WebDriver[1];
@@ -26,7 +24,6 @@ public class Test8 {
 
         String table = this.driver().findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
         assertEquals(table, "V");
-//        System.out.println(table);
 
         Select Statuse = new Select(this.driver().findElement(By.id("SelectedStatus")));
         Statuse.selectByIndex(2);
@@ -44,7 +41,6 @@ public class Test8 {
 
     @BeforeMethod
     public void createDriver() {
-//     driver[0] = new FirefoxDriver();
         driver[0] = new ChromeDriver();
     }
 
