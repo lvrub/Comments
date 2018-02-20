@@ -12,9 +12,11 @@ public class App {
         Teacher petrova = new TeacherForStudent("Petrova ");
         Teacher ivanova = new TeacherForStudent("Ivanova ");
 
+        Grade grade = new ReceivedGrade(2);
         Room room = new RoomOne(2);
         Subject git = new GitSyllabus();
         Subject cake = new BakeCake();
+
 
         List<Student> student = new ArrayList();
         student.add(andrey);
@@ -24,6 +26,7 @@ public class App {
         for (int i = 0; i < student.size(); i++) {
             room.accept(student.get(i));
             come(student.get(i), git);
+            grade.getByStudent(student.get(i));
         }
 
         List<Teacher> teacher = new ArrayList();
@@ -32,6 +35,7 @@ public class App {
 
         do1(teacher.get(0), git);
         do1(teacher.get(1), cake);
+
     }
 
     private static void come(Student someone, Subject subject) {
