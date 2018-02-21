@@ -2,6 +2,8 @@ package net.commments.sample;
 
 public interface Grade {
 
-    void getByStudent(Student student);
+    void getByStudent(Grade grade, Student student);
+
+//    String grade();
 
 }

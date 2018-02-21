@@ -12,7 +12,10 @@ public class App {
         Teacher petrova = new TeacherForStudent("Petrova ");
         Teacher ivanova = new TeacherForStudent("Ivanova ");
 
-        Grade grade = new ReceivedGrade(2);
+        Grade a = new ReceivedGrade("A");
+        Grade b = new ReceivedGrade("B");
+        Grade c = new ReceivedGrade("C");
+
         Room room = new RoomOne(2);
         Subject git = new GitSyllabus();
         Subject cake = new BakeCake();
@@ -26,8 +29,10 @@ public class App {
         for (int i = 0; i < student.size(); i++) {
             room.accept(student.get(i));
             come(student.get(i), git);
-            grade.getByStudent(student.get(i));
         }
+        a.getByStudent(b, andrey);
+        b.getByStudent(b, nastya);
+        c.getByStudent(c, dima);
 
         List<Teacher> teacher = new ArrayList();
         teacher.add(petrova);
