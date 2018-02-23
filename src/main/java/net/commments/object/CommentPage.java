@@ -4,7 +4,7 @@ public interface CommentPage {
 
     void open();
 
-    void newComment();
+    void clickNewComment();
 
-    int commentPagination();
+//    int commentPagination();
 }

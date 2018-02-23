@@ -3,6 +3,8 @@ package net.commments.object;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class BCommentPage implements CommentPage {
     private final WebDriver driver;
 
@@ -11,17 +13,16 @@ public class BCommentPage implements CommentPage {
     }
 
     public void open() {
-        driver.get("http://commentssprintone.azurewebsites.net/");
+        this.driver.get("http://commentssprintone.azurewebsites.net/");
+    }
+
+    public void clickNewComment() {
+        this.driver.findElement(By.id("newbutton")).click();
+        this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
     }
 
-    public void newComment() {
-        driver.findElements(By.id("newbutton")).get(0).click();
-
-    }
-
-    public int commentPagination() {
-        throw new UnsupportedOperationException("Please implement");
-
-    }
+//    public int commentPagination() {
+//        throw new UnsupportedOperationException("Please implement");
+//    }
 }
