@@ -30,17 +30,4 @@ public class Test22 extends BaseDriver {
         assertEquals(errorText, "The Comment Text field should contain alphanumeric characters only");
     }
 
-//    @BeforeMethod
-//    public void createDriver() {
-//        driver[0] = new ChromeDriver();
-//    }
-//
-//    @AfterMethod
-//    public void closeDriver() {
-//        driver[0].quit();
-//    }
-//
-//    private WebDriver driver() {
-//        return this.driver[0];
-//    }
 }
