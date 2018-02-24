@@ -6,5 +6,5 @@ public interface CommentPage {
 
     void clickNewComment();
 
-//    int commentPagination();
+    int commentPagination();
 }

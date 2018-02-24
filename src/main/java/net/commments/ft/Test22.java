@@ -35,7 +35,6 @@ public class Test22 {
     @BeforeMethod
     public void createDriver() {
         this.driver.define();
-
     }
 
     @AfterMethod
