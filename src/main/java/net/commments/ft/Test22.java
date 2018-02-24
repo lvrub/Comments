@@ -9,12 +9,14 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class Test22 extends BaseDriver {
+
+
     private final CommentPage commentPage;
     private final CommentWindow commentWindow;
 
     public Test22() {
-//        super();
-        this.commentPage = new BCommentPage(this.driver);
+        super();
+        this.commentPage = new BCommentPage(this.driver);   /*why we  need it ?*/
         this.commentWindow = new BCommentWindow(this.driver);
     }
 

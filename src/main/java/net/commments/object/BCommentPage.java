@@ -18,7 +18,7 @@ public class BCommentPage implements CommentPage {
 
     public void clickNewComment() {
         this.driver.findElement(By.id("newbutton")).click();
-        this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        this.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
     }
 
