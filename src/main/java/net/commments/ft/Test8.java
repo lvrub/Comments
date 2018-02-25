@@ -1,5 +1,7 @@
 package net.commments.ft;
 
+import net.commments.object.BCommentPage;
+import net.commments.object.CommentPage;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +16,15 @@ import static org.testng.Assert.assertEquals;
 public class Test8 {
 
     private final WebDriver[] driver = new WebDriver[1];
+    private final CommentPage commentPage;
+
+    public Test8() {
+        this.commentPage = new BCommentPage(driver[0]);
+    }
 
     @Test
     public void test() {
-        this.driver().get("http://commentssprintone.azurewebsites.net");
+        commentPage.open();
         this.driver().findElements(By.name("SelectedId")).get(0).click();
         Select SelectAnAction = new Select(this.driver().findElement(By.id("commandSelect")));
         SelectAnAction.selectByIndex(2);
