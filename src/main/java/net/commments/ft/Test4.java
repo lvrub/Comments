@@ -1,4 +1,4 @@
-package net.commments;
+package net.commments.ft;
 
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;

@@ -1,9 +1,11 @@
-package net.commments;
+package net.commments.ft;
 
+import net.commments.object.BCommentPage;
+import net.commments.object.CommentPage;
+import net.commments.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,13 +14,18 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class Test8 {
+    protected final CommentsDriver driver;
+    private final CommentPage commentPage;
 
-    private final WebDriver[] driver = new WebDriver[1];
+    public Test8() {
+        this.driver = new CommentsDriver();
+        this.commentPage = new BCommentPage(this.driver);
+    }
 
     @Test
     public void test() {
-        this.driver().get("http://commentssprintone.azurewebsites.net");
-        this.driver().findElements(By.name("SelectedId")).get(0).click();
+        commentPage.open();
+        this.driver().findElement(By.name("SelectedId")).click();
         Select SelectAnAction = new Select(this.driver().findElement(By.id("commandSelect")));
         SelectAnAction.selectByIndex(2);
 
@@ -41,15 +48,16 @@ public class Test8 {
 
     @BeforeMethod
     public void createDriver() {
-        driver[0] = new ChromeDriver();
+        this.driver.define();
     }
 
     @AfterMethod
     public void closeDriver() {
-        driver[0].quit();
+        driver.quit();
     }
 
     private WebDriver driver() {
-        return this.driver[0];
+        return this.driver;
     }
+
 }
