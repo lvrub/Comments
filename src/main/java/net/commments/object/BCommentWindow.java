@@ -19,8 +19,8 @@ public class BCommentWindow implements CommentWindow {
     }
 
     public String showErrorMessage() {
-        String errorText = this.driver.findElement(By.id("errorfield")).getText();
-        return errorText;
+        return this.driver.findElement(By.id("errorfield")).getText();
+
 
     }
 }
