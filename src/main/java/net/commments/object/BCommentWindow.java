@@ -20,7 +20,5 @@ public class BCommentWindow implements CommentWindow {
 
     public String showErrorMessage() {
         return this.driver.findElement(By.id("errorfield")).getText();
-
-
     }
 }
