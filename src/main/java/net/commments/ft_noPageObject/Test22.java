@@ -1,4 +1,4 @@
-package net.commments;
+package net.commments.ft_noPageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
