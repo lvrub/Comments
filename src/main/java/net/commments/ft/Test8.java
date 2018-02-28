@@ -8,8 +8,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-
 public class Test8 {
     protected final CommentsDriver driver;
     private final CommentPage commentPage;
@@ -32,8 +30,9 @@ public class Test8 {
         commentTable.checkCommentInTable(0); // numeration list starts from "0"
         commentListActions.openActionList();
         commentListActions.selectAction("Inactivate");
-        String activationStatusInTable = commentTable.checkActiveStatus();
-        assertEquals(activationStatusInTable, "V");
+        MatcherAssert.assertThat("Comment is inactive", commentTable.isCommentInactive("V1"));
+//                String activationStatusInTable = commentTable.commentStatus ();
+//              assertEquals(activationStatusInTable, "V1");
         commentListStatus.selectStatus("Inactive");
         commentListStatus.clickApplyStatus();
         final String page = this.driver().getPageSource();
@@ -42,6 +41,7 @@ public class Test8 {
         commentListStatus.clickApplyStatus();
         final String page1 = this.driver().getPageSource();
         MatcherAssert.assertThat("Comment Text 0 is present", !page1.contains("Comment Text 0"));
+
 
     }
 

@@ -34,7 +34,7 @@ public class BCommentListActions implements CommentListActions {
 
     public void selectAction(String action) {
         new Select(this.driver.findElement(By.id("commandSelect"))).selectByVisibleText(action);
-        this.driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
 }
