@@ -6,6 +6,6 @@ public interface CommentTable {
 
 //   String commentStatus();
 
-    boolean isInactive();
+    boolean isCommentInactive(String state);
 
 }

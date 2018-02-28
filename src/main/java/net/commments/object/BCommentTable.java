@@ -19,16 +19,17 @@ public class BCommentTable implements CommentTable {
 //        return this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
 //    }
 
-    public boolean isInactive() {
+    public boolean isCommentInactive(String state) {
         try {
-            String s = this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
-            System.out.println(s);
+            this.driver.findElement(By.xpath(String.format("//tr[1]/td[@class=\"inactivecolumn\" and contains(text(), \"%s\")]", state)));
+            System.out.println(state);
             return true;
         } catch (NoSuchElementException e) {
+            System.out.println(false);
             return false;
         }
-
-
     }
 
 }
+
+
