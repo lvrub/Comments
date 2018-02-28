@@ -4,6 +4,8 @@ public interface CommentTable {
 
     void checkCommentInTable(int numberComment);
 
-    String checkActiveStatus();
+//   String commentStatus();
+
+    boolean isInactive();
 
 }
