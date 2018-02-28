@@ -34,7 +34,6 @@ public class BCommentListStatus implements CommentListStatus {
     public void selectStatus(String status) {
         new Select(this.driver.findElement(By.id("SelectedStatus"))).selectByVisibleText(status);
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
     }
 
     public void clickApplyStatus() {

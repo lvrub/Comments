@@ -1,6 +1,7 @@
 package net.commments.object;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class BCommentTable implements CommentTable {
@@ -14,9 +15,20 @@ public class BCommentTable implements CommentTable {
         this.driver.findElements(By.name("SelectedId")).get(numberComment).click();
     }
 
+//    public String commentStatus() {
+//        return this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
+//    }
 
-    public String checkActiveStatus() {
-        return this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
+    public boolean isInactive() {
+        try {
+            String s = this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
+            System.out.println(s);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+
 
     }
+
 }
