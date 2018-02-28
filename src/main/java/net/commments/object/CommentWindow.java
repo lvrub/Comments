@@ -7,4 +7,8 @@ public interface CommentWindow {
     void saveComment();
 
     String showErrorMessage();
+
+    void addCategory();
+
+    boolean isErrorMessageShown(String errorMessage);
 }

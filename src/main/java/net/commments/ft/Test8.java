@@ -28,11 +28,8 @@ public class Test8 {
     public void test() {
         commentPage.open();
         commentTable.checkCommentInTable(0); // numeration list starts from "0"
-        commentListActions.openActionList();
         commentListActions.selectAction("Inactivate");
-        MatcherAssert.assertThat("Comment is inactive", commentTable.isCommentInactive("V1"));
-//                String activationStatusInTable = commentTable.commentStatus ();
-//              assertEquals(activationStatusInTable, "V1");
+        MatcherAssert.assertThat("Comment is inactive", commentTable.isCommentInactive("V"));
         commentListStatus.selectStatus("Inactive");
         commentListStatus.clickApplyStatus();
         final String page = this.driver().getPageSource();

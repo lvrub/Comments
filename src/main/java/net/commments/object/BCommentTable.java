@@ -15,17 +15,17 @@ public class BCommentTable implements CommentTable {
         this.driver.findElements(By.name("SelectedId")).get(numberComment).click();
     }
 
-//    public String commentStatus() {
-//        return this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
-//    }
+    public String commentStatus() {
+        return this.driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[5]/form/table/tbody/tr[1]/td[4]")).getText();
+    }
 
     public boolean isCommentInactive(String state) {
         try {
-            this.driver.findElement(By.xpath(String.format("//tr[1]/td[@class=\"inactivecolumn\" and contains(text(), \"%s\")]", state)));
+            this.driver.findElement(By.xpath(String.format("//tr[1]/td[@class='inactivecolumn' and contains(text(), \"%s\")]", state)));
             System.out.println(state);
             return true;
         } catch (NoSuchElementException e) {
-            System.out.println(false);
+            System.out.println(e);
             return false;
         }
     }
