@@ -24,4 +24,8 @@ public class BCommentPage implements CommentPage {
     public int commentPagination() {
         throw new UnsupportedOperationException("Please implement");
     }
+
+    public void clickDuplicate() {
+        this.driver.findElement(By.xpath("//*[@id='command-navigation']/input[1]")).click();
+    }
 }

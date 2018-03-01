@@ -7,4 +7,6 @@ public interface CommentPage {
     void clickNewComment();
 
     int commentPagination();
+
+    void clickDuplicate();
 }

@@ -11,4 +11,8 @@ public interface CommentWindow {
     void addCategory();
 
     boolean isErrorMessageShown(String errorMessage);
+
+    boolean isCorrectText(String commentText);
+
+    boolean isCorrectNumber(String commentnumber);
 }

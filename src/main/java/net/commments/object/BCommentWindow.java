@@ -42,4 +42,31 @@ public class BCommentWindow implements CommentWindow {
             return false;
         }
     }
+
+    public boolean isCorrectText(String commentText) {
+        try {
+            this.driver.findElement(By.xpath(String.format("//input[@id='Text'and contains (@value,\"%s\")]", commentText)));
+            return true;
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+            return false;
+        }
+
+    }
+
+    public boolean isCorrectNumber(String commentnumber) {
+        try {
+            this.driver.findElement(By.xpath(String.format("//input[@id='Number' and contains(@value,\"%s\")]", commentnumber)));
+            return true;
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+            return false;
+        }
+
+    }
+
+
 }
+
+
+
