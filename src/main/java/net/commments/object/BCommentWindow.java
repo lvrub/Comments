@@ -60,7 +60,6 @@ public class BCommentWindow implements CommentWindow {
             System.out.println(e);
             return false;
         }
-
     }
 
     public boolean isCorrectNumber(String commentnumber) {
@@ -71,21 +70,19 @@ public class BCommentWindow implements CommentWindow {
             System.out.println(e);
             return false;
         }
-
     }
 
-    public boolean isCorrectCategorySelected() {
+    public boolean isCorrectCategorySelected(String category) {
         try {
-            this.driver.findElement(By.xpath("//html//div[@id='selectedCategories']/div[1]"));
+            String s = this.driver.findElement(By.xpath("//*[@id='selectedCategories']//*//span[contains(text(),'" + category + "')]")).getText();
             this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            System.out.println(s + " isCorrectCategorySelected");
             return true;
         } catch (NoSuchElementException e) {
             System.out.println(e);
             return false;
         }
-
     }
-
 
 }
 

@@ -13,13 +13,11 @@ public class Test2 {
     protected final CommentTable commentTable;
     protected final CommentWindow commentWindow;
 
-
     public Test2() {
         this.driver = new CommentsDriver();
         commentTable = new BCommentTable(driver);
         commentPage = new BCommentPage(driver);
         commentWindow = new BCommentWindow(driver);
-
     }
 
     @Test
@@ -28,13 +26,14 @@ public class Test2 {
         commentTable.checkCommentInTable(0);
         commentPage.clickDuplicate();
         MatcherAssert.assertThat("Text is correct", commentWindow.isCorrectText("Copy of Comment Text 0"));
-        MatcherAssert.assertThat("Text is number", commentWindow.isCorrectNumber("0"));
-        commentWindow.isCorrectCategorySelected();
+        MatcherAssert.assertThat("Number is correct", commentWindow.isCorrectNumber("0"));
+        MatcherAssert.assertThat("Category is selected", commentWindow.isCorrectCategorySelected("Cat0"));
         commentWindow.fillCommentNumber("77");
         commentWindow.saveCommentReturnInTable();
         commentPage.navigateToLastPage();
-
-
+        MatcherAssert.assertThat("Text is correct", commentTable.isCommentTextCorrect("Copy of Comment Text 0"));
+        MatcherAssert.assertThat("Number is correct", commentTable.isCommentNumberCorrect("77"));
+        MatcherAssert.assertThat("Category is correct", commentTable.isCommentCategoryCorrect("Cat0"));
     }
 
     @AfterMethod

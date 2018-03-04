@@ -20,5 +20,5 @@ public interface CommentWindow {
 
     boolean isCorrectNumber(String commentnumber);
 
-    boolean isCorrectCategorySelected();
+    boolean isCorrectCategorySelected(String category);
 }
