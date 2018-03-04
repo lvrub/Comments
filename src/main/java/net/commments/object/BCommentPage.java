@@ -23,8 +23,21 @@ public class BCommentPage implements CommentPage {
 
     public void navigateToLastPage() {
         String s = this.driver.findElement(By.xpath("//td[@colspan='5']")).getText();
-        System.out.println(s.indexOf(2));
+        System.out.println(s);
+
+        String[] pages = s.split(" ");
+        for (String s1 : pages)
+            System.out.println(s1);
+
+
+        String s2 = pages[3];
+        System.out.println(s2);
+        String page = s2;
+
+        this.driver.findElement(By.xpath(String.format("//a[@href='/?page=%s']", page))).click();
     }
+
+
 
     public void clickDuplicate() {
         this.driver.findElement(By.xpath("//*[@id='command-navigation']/input[1]")).click();
