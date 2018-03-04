@@ -4,7 +4,11 @@ public interface CommentWindow {
 
     void fillCommentTextField(String commentText);
 
+    void fillCommentNumber(String commentNumber);
+
     void saveComment();
+
+    void saveCommentReturnInTable();
 
     String showErrorMessage();
 
@@ -15,4 +19,6 @@ public interface CommentWindow {
     boolean isCorrectText(String commentText);
 
     boolean isCorrectNumber(String commentnumber);
+
+    boolean isCorrectCategorySelected();
 }

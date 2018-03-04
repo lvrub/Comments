@@ -29,17 +29,22 @@ public class Test2 {
         commentPage.clickDuplicate();
         MatcherAssert.assertThat("Text is correct", commentWindow.isCorrectText("Copy of Comment Text 0"));
         MatcherAssert.assertThat("Text is number", commentWindow.isCorrectNumber("0"));
+        commentWindow.isCorrectCategorySelected();
+        commentWindow.fillCommentNumber("77");
+        commentWindow.saveCommentReturnInTable();
+        commentPage.navigateToLastPage();
+
 
     }
 
+    @AfterMethod
+    public void closeDriver() {
+        this.driver.quit();
+    }
 
     @BeforeMethod
     public void createDriver() {
         this.driver.define();
     }
 
-    @AfterMethod
-    public void closeDriver() {
-        this.driver.close();
-    }
 }
