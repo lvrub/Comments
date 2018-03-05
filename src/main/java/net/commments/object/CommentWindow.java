@@ -16,9 +16,9 @@ public interface CommentWindow {
 
     boolean isErrorMessageShown(String errorMessage);
 
-    boolean isCorrectText(String commentText);
+    String commentText();
 
-    boolean isCorrectNumber(String commentnumber);
+    String commentNumber();
 
-    boolean isCorrectCategorySelected(String category);
+    String selectedCategory();
 }

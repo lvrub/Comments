@@ -25,12 +25,8 @@ public class BCommentPage implements CommentPage {
         String s = this.driver.findElement(By.xpath("//td[@colspan='5']")).getText();
         System.out.println(s);
         String[] pages = s.split(" ");
-        for (String s1 : pages)
-            System.out.println(s1);
-        String s2 = pages[pages.length - 2];
-        System.out.println(s2);
-        String page = s2;
-        this.driver.findElement(By.xpath(String.format("//a[@href='/?page=%s']", page))).click();
+        this.driver.findElement(By.xpath(String.format("//a[@href='/?page=%s']", pages.length - 1))).click();
+        System.out.println(pages.length - 1);
     }
 
     public void clickDuplicate() {

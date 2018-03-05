@@ -52,36 +52,16 @@ public class BCommentWindow implements CommentWindow {
         }
     }
 
-    public boolean isCorrectText(String commentText) {
-        try {
-            this.driver.findElement(By.xpath(String.format("//input[@id='Text'and contains (@value,\"%s\")]", commentText)));
-            return true;
-        } catch (NoSuchElementException e) {
-            System.out.println(e);
-            return false;
-        }
+    public String commentText() {
+        return this.driver.findElement(By.xpath("*//input[@id='Text']")).getAttribute("value");
     }
 
-    public boolean isCorrectNumber(String commentnumber) {
-        try {
-            this.driver.findElement(By.xpath(String.format("//input[@id='Number' and contains(@value,\"%s\")]", commentnumber)));
-            return true;
-        } catch (NoSuchElementException e) {
-            System.out.println(e);
-            return false;
-        }
+    public String commentNumber() {
+        return this.driver.findElement(By.xpath("*//input[@id='Number']")).getAttribute("value");
     }
 
-    public boolean isCorrectCategorySelected(String category) {
-        try {
-            String s = this.driver.findElement(By.xpath("//*[@id='selectedCategories']//*//span[contains(text(),'" + category + "')]")).getText();
-            this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            System.out.println(s + " isCorrectCategorySelected");
-            return true;
-        } catch (NoSuchElementException e) {
-            System.out.println(e);
-            return false;
-        }
+    public String selectedCategory() {
+        return this.driver.findElement(By.xpath("//span[contains(text(),'Cat0')]")).getText();
     }
 
 }

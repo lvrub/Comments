@@ -7,6 +7,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+
 public class Test2 {
     protected final CommentsDriver driver;
     protected final CommentPage commentPage;
@@ -25,9 +27,12 @@ public class Test2 {
         commentPage.open();
         commentTable.checkCommentInTable(0);
         commentPage.clickDuplicate();
-        MatcherAssert.assertThat("Text is correct", commentWindow.isCorrectText("Copy of Comment Text 0"));
-        MatcherAssert.assertThat("Number is correct", commentWindow.isCorrectNumber("0"));
-        MatcherAssert.assertThat("Category is selected", commentWindow.isCorrectCategorySelected("Cat0"));
+        String text = commentWindow.commentText();
+        assertEquals(text, "Copy of Comment Text 0");
+        String number = commentWindow.commentNumber();
+        assertEquals(number, "0");
+        String category = commentWindow.selectedCategory();
+        assertEquals(category, "Cat0");
         commentWindow.fillCommentNumber("77");
         commentWindow.saveCommentReturnInTable();
         commentPage.navigateToLastPage();
