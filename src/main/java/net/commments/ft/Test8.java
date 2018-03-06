@@ -27,7 +27,7 @@ public class Test8 {
     @Test
     public void test() {
         commentPage.open();
-        commentTable.checkCommentInTable(0); // numeration list starts from "0"
+        commentTable.checkExistingComment(0); // numeration list starts from "0"
         commentListActions.selectAction("Inactivate");
         MatcherAssert.assertThat("Comment is inactive", commentTable.isCommentInactive("V"));
         commentListStatus.selectStatus("Inactive");

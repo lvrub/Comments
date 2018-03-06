@@ -5,11 +5,12 @@ import net.commments.object.BCommentWindow;
 import net.commments.object.CommentPage;
 import net.commments.object.CommentWindow;
 import net.commments.selenium.CommentsDriver;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
 
 public class Test22 {
     protected final CommentsDriver driver;
@@ -22,15 +23,14 @@ public class Test22 {
         this.commentWindow = new BCommentWindow(this.driver);
     }
 
-    @Test
-    public void test() {
+    @Test(dataProvider = "Data1")
+    public void test(String text, String errorMessage) {
         commentPage.open();
         commentPage.clickNewComment();
-        commentWindow.fillCommentTextField("!@#$%^&*( ");
+        commentWindow.fillCommentTextField(text);
         commentWindow.addCategory();
         commentWindow.saveComment();
-        String error = commentWindow.showErrorMessage();
-        assertEquals(error, "The Comment Text field should contain alphanumeric characters only");
+        MatcherAssert.assertThat(commentWindow.showErrorMessage(), Matchers.is(errorMessage));
     }
 
     @BeforeMethod
@@ -43,4 +43,12 @@ public class Test22 {
         this.driver.close();
     }
 
+    @DataProvider
+    public Object[][] Data1() {
+        return new Object[][]{
+                {"!@#$%^&*", "The Comment Text field should contain alphanumeric characters only"},
+                {"ернорлдлор", "The Comment Text field should contain alphanumeric characters only"}
+
+        };
+    }
 }

@@ -3,11 +3,10 @@ package net.commments.ft;
 import net.commments.object.*;
 import net.commments.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
 
 public class Test2 {
     protected final CommentsDriver driver;
@@ -25,20 +24,17 @@ public class Test2 {
     @Test
     public void test() {
         commentPage.open();
-        commentTable.checkCommentInTable(0);
+        commentTable.checkExistingComment(0);
         commentPage.clickDuplicate();
-        String text = commentWindow.commentText();
-        assertEquals(text, "Copy of Comment Text 0");
-        String number = commentWindow.commentNumber();
-        assertEquals(number, "0");
-        String category = commentWindow.selectedCategory();
-        assertEquals(category, "Cat0");
+        MatcherAssert.assertThat(commentWindow.commentText(), Matchers.is("Copy of Comment Text 0"));
+        MatcherAssert.assertThat(commentWindow.commentNumber(), Matchers.is("0"));
+        MatcherAssert.assertThat(commentWindow.selectedCategory(), Matchers.is("Cat0"));
         commentWindow.fillCommentNumber("77");
         commentWindow.saveCommentReturnInTable();
         commentPage.navigateToLastPage();
-        MatcherAssert.assertThat("Text is correct", commentTable.isCommentTextCorrect("Copy of Comment Text 0"));
-        MatcherAssert.assertThat("Number is correct", commentTable.isCommentNumberCorrect("77"));
-        MatcherAssert.assertThat("Category is correct", commentTable.isCommentCategoryCorrect("Cat0"));
+        MatcherAssert.assertThat("Text is correct", commentTable.isNewCommentTextCorrect("Copy of Comment Text 0"));
+        MatcherAssert.assertThat("Number is correct", commentTable.isNewCommentNumberCorrect("77"));
+        MatcherAssert.assertThat("Category is correct", commentTable.isNewCommentCategoryCorrect("Cat0"));
     }
 
     @AfterMethod
