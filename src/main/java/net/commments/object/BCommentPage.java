@@ -21,7 +21,13 @@ public class BCommentPage implements CommentPage {
         this.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
-    public int commentPagination() {
-        throw new UnsupportedOperationException("Please implement");
+    public void navigateToLastPage() {
+        String s = this.driver.findElement(By.xpath("//td[@colspan='5']")).getText();
+        String[] pages = s.split(" ");
+        this.driver.findElement(By.xpath(String.format("//a[@href='/?page=%s']", pages.length - 1))).click();
+    }
+
+    public void clickDuplicate() {
+        this.driver.findElement(By.xpath("//*[@id='command-navigation']/input[1]")).click();
     }
 }

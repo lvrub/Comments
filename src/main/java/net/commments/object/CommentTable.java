@@ -2,7 +2,13 @@ package net.commments.object;
 
 public interface CommentTable {
 
-    void checkCommentInTable(int numberComment);
+    void checkExistingComment(int numberComment);
+
+    boolean isNewCommentTextCorrect(String name);
+
+    boolean isNewCommentNumberCorrect(String number);
+
+    boolean isNewCommentCategoryCorrect(String category);
 
     String commentStatus();
 

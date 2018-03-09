@@ -18,8 +18,17 @@ public class BCommentWindow implements CommentWindow {
         this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    public void fillCommentNumber(String commentNumber) {
+        this.driver.findElement(By.id("Number")).clear();
+        this.driver.findElement(By.id("Number")).sendKeys(commentNumber);
+    }
+
     public void saveComment() {
         this.driver.findElement(By.xpath("//*[@id=\"editor-navigation\"]/input[1]")).click();
+    }
+
+    public void saveCommentReturnInTable() {
+        this.driver.findElement(By.xpath("//*[@class=\"buttonAsLink\" and @value ='Save & Return']")).click();
     }
 
     public String showErrorMessage() {
@@ -38,8 +47,23 @@ public class BCommentWindow implements CommentWindow {
             System.out.println(errorMessage);
             return true;
         } catch (NoSuchElementException e) {
-            System.out.println(e);
             return false;
         }
     }
+
+    public String commentText() {
+        return this.driver.findElement(By.xpath("*//input[@id='Text']")).getAttribute("value");
+    }
+
+    public String commentNumber() {
+        return this.driver.findElement(By.xpath("*//input[@id='Number']")).getAttribute("value");
+    }
+
+    public String selectedCategory() {
+        return this.driver.findElement(By.xpath("//span[contains(text(),'Cat0')]")).getText();
+    }
+
 }
+
+
+
