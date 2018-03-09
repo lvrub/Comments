@@ -1,9 +1,9 @@
-package net.commments.ft;
+package Tests.ft;
 
-import net.commments.object.BCommentPage;
-import net.commments.object.BCommentWindow;
-import net.commments.object.CommentPage;
-import net.commments.object.CommentWindow;
+import Tests.object.BCommentPage;
+import Tests.object.BCommentWindow;
+import Tests.object.CommentPage;
+import Tests.object.CommentWindow;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;

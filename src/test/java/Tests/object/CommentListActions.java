@@ -1,4 +1,4 @@
-package net.commments.object;
+package Tests.object;
 
 public interface CommentListActions {
 
