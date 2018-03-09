@@ -1,5 +1,6 @@
 package Tests.object;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -13,6 +14,7 @@ public class BCommentListActions implements CommentListActions {
         this.driver = driver;
     }
 
+    @Step("Select status for comment in table")
     public void selectAction(String action) {
         new Select(this.driver.findElement(By.id("commandSelect"))).selectByVisibleText(action);
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
