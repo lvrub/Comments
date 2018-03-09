@@ -1,0 +1,17 @@
+package net.commments.object;
+
+public interface CommentTable {
+
+    void checkExistingComment(int numberComment);
+
+    boolean isNewCommentTextCorrect(String name);
+
+    boolean isNewCommentNumberCorrect(String number);
+
+    boolean isNewCommentCategoryCorrect(String category);
+
+    String commentStatus();
+
+    boolean isCommentInactive(String state);
+
+}
