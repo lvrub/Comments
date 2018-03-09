@@ -1,6 +1,6 @@
-package net.commments.ft;
+package Tests.ft;
 
-import net.commments.object.*;
+import Tests.object.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.WebDriver;

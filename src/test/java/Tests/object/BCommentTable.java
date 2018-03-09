@@ -1,4 +1,4 @@
-package net.commments.object;
+package Tests.object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
