@@ -4,6 +4,7 @@ import Tests.object.BCommentPage;
 import Tests.object.BCommentWindow;
 import Tests.object.CommentPage;
 import Tests.object.CommentWindow;
+import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -23,7 +24,11 @@ public class Test22 {
         this.commentWindow = new BCommentWindow(this.driver);
     }
 
-    @Test(dataProvider = "Data1", priority = 3, description = "Comment saving with special characters")
+    @Test(dataProvider = "Data1", description = "Comment saving with special characters")
+    @Severity(SeverityLevel.MINOR)
+    @Description("This test checks saving of comment with name containing special characters")
+    @Epic("Regression Suit")
+    @Feature("Comment name validation")
     public void test(String text, String errorMessage) {
         commentPage.open();
         commentPage.clickNewComment();

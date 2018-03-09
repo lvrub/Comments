@@ -1,6 +1,7 @@
 package Tests.ft;
 
 import Tests.object.*;
+import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,11 @@ public class Test8 {
 
     }
 
-    @Test
+    @Test(description = "Inactivation of selected comment")
+    @Description("This test verifies inactivating of comments from table")
+    @Severity(SeverityLevel.CRITICAL)
+    @Epic("Regression Suit")
+    @Feature("Comment Inactivation")
     public void test() {
         commentPage.open();
         commentTable.checkExistingComment(0); // numeration list starts from "0"

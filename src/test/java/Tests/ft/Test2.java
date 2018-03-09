@@ -1,6 +1,7 @@
 package Tests.ft;
 
 import Tests.object.*;
+import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -21,7 +22,11 @@ public class Test2 {
         commentWindow = new BCommentWindow(driver);
     }
 
-    @Test
+    @Test(description = "Verify duplication of comment")
+    @Description("This test verifies that uset is able to duplicate a comment")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("Regression Suit")
+    @Feature("Duplication of a comment")
     public void test() {
         commentPage.open();
         commentTable.checkExistingComment(0);

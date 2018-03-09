@@ -1,5 +1,6 @@
 package Tests.ft;
 
+import io.qameta.allure.*;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,11 @@ public class Test4 {
 
     private final WebDriver[] driver = new WebDriver[1];
 
-    @Test
+    @Test(description = "Deleting of a comments")
+    @Description("This test verifies deleting a comments from table")
+    @Severity(SeverityLevel.BLOCKER)
+    @Epic("Regression Suit")
+    @Feature("Comment deletion")
     public void test() {
         this.driver().get("http://commentssprintone.azurewebsites.net");
         this.driver().findElements(By.name("SelectedId")).get(0).click();

@@ -1,5 +1,6 @@
 package Tests.object;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -13,11 +14,13 @@ public class BCommentListStatus implements CommentListStatus {
         this.driver = driver;
     }
 
+    @Step("Select status for table filtration")
     public void selectStatus(String status) {
         new Select(this.driver.findElement(By.id("SelectedStatus"))).selectByVisibleText(status);
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
+    @Step("Apply selected status for table filtration")
     public void clickApplyStatus() {
         this.driver.findElements(By.id("applybutton")).get(0).click();
     }
