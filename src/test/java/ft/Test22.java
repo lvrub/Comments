@@ -1,16 +1,16 @@
-package net.commments.ft;
+package ft;
 
-import net.commments.object.BCommentPage;
-import net.commments.object.BCommentWindow;
-import net.commments.object.CommentPage;
-import net.commments.object.CommentWindow;
-import net.commments.selenium.CommentsDriver;
+import object.BCommentPage;
+import object.BCommentWindow;
+import object.CommentPage;
+import object.CommentWindow;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import selenium.CommentsDriver;
 
 public class Test22 {
     protected final CommentsDriver driver;
@@ -23,7 +23,7 @@ public class Test22 {
         this.commentWindow = new BCommentWindow(this.driver);
     }
 
-    @Test(dataProvider = "Data1")
+    @Test(dataProvider = "Data1", priority = 3, description = "Comment saving with special characters")
     public void test(String text, String errorMessage) {
         commentPage.open();
         commentPage.clickNewComment();
