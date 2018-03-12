@@ -13,6 +13,4 @@ public interface CommentTable {
     String commentStatus();
 
     boolean isCommentInactive(String state);
-
-    void commentNames();
 }
