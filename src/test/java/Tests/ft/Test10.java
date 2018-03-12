@@ -1,6 +1,7 @@
 package Tests.ft;
 
 import Tests.object.*;
+import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.AfterMethod;
@@ -22,7 +23,11 @@ public class Test10 {
 
     }
 
-    @Test
+    @Test(description = "Filtration of comments with special category")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("This test checks table filtration of comments which contains required category")
+    @Epic("Regression Suit")
+    @Feature("Check category filtration")
     public void test() {
         commentPage.open();
         commentListStatus.selectCategoty("Cat4");
@@ -32,7 +37,7 @@ public class Test10 {
         MatcherAssert.assertThat("Comment Text 19 is present", commentTable.isNewCommentTextCorrect("Comment Text 19"));
         MatcherAssert.assertThat("Comment Text 24 is present", commentTable.isNewCommentTextCorrect("Comment Text 24"));
         MatcherAssert.assertThat("Comment Text 19 is present", commentTable.isNewCommentTextCorrect("Comment Text 29"));
-        commentListStatus.selectCategoty("Cat3");
+        commentListStatus.selectCategoty("Cat5");
         commentListStatus.clickApplyStatus();
         final String page1 = driver.getPageSource();
         MatcherAssert.assertThat("Comment Text 9 is not present", !page1.contains("Comment Text 9"));

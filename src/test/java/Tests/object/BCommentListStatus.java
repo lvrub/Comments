@@ -20,6 +20,7 @@ public class BCommentListStatus implements CommentListStatus {
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
+    @Step("Select category for table filtration")
     public void selectCategoty(String category) {
         new Select(this.driver.findElement(By.id("SelectedCateg"))).selectByVisibleText(category);
     }
