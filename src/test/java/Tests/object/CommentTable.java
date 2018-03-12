@@ -14,4 +14,5 @@ public interface CommentTable {
 
     boolean isCommentInactive(String state);
 
+    void commentNames();
 }
