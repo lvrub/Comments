@@ -6,7 +6,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BCommentTable implements CommentTable {
@@ -46,14 +45,6 @@ public class BCommentTable implements CommentTable {
         }
     }
 
-    public void commentNames() {
-        List<String> names = new ArrayList<>();
-        for (WebElement element : driver.findElements(By.xpath("//td[@class='textcolumn']"))) {
-            names.add(element.getText());
-            System.out.println(names);
-        }
-    }
-
     @Step("Verify comment category in table")
     public boolean isNewCommentCategoryCorrect(String category) {
         try {
@@ -79,17 +70,13 @@ public class BCommentTable implements CommentTable {
         try {
             List<WebElement> categories = this.driver.findElements(By.xpath("//*[@class='categorycolumn']"));
             for (WebElement row : categories) {
-                int i = 0;
-                row = categories.get(i);
-                String actual = row.getText();
-                System.out.println(row.getText());
-                if (actual.contains(expected))
-                    return true;
+                System.out.println(this.driver.findElement((By.xpath(String.format("//*[@class='categorycolumn' and contains(text(), \"%s\")]", expected)))));
             }
+            return true;
         } catch (NoSuchElementException e) {
-            System.out.println(e);
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
 }
