@@ -32,6 +32,7 @@ public class Test10 {
         commentPage.open();
         commentListStatus.selectCategoty("Cat4");
         commentListStatus.clickApplyStatus();
+        MatcherAssert.assertThat("Categories contains needed category", commentTable.verifyCategories("Cat4"));
         MatcherAssert.assertThat("Comment Text 9 is present", commentTable.isNewCommentTextCorrect("Comment Text 9"));
         MatcherAssert.assertThat("Comment Text 14 is present", commentTable.isNewCommentTextCorrect("Comment Text 14"));
         MatcherAssert.assertThat("Comment Text 19 is present", commentTable.isNewCommentTextCorrect("Comment Text 19"));
