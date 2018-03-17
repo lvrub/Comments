@@ -4,6 +4,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BCommentTable implements CommentTable {
     private final WebDriver driver;
@@ -42,6 +46,14 @@ public class BCommentTable implements CommentTable {
         }
     }
 
+    public void commentNames() {
+        List<String> names = new ArrayList<>();
+        for (WebElement element : driver.findElements(By.xpath("//td[@class='textcolumn']"))) {
+            names.add(element.getText());
+            System.out.println(names);
+        }
+    }
+
     @Step("Verify comment category in table")
     public boolean isNewCommentCategoryCorrect(String category) {
         try {
@@ -62,6 +74,22 @@ public class BCommentTable implements CommentTable {
         }
     }
 
+    @Step("Verify presence of the category in comment categories ")
+    public boolean verifyCategories(String expected) throws NoSuchElementException {
+        try {
+            List<WebElement> categories = this.driver.findElements(By.xpath("//*[@class='categorycolumn']"));
+            for (WebElement row : categories) {
+                int i = 0;
+                row = categories.get(i);
+                String actual = row.getText();
+                System.out.println(row.getText());
+                if (actual.contains(expected))
+                    return true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
 }
-
-
