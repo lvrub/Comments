@@ -3,7 +3,6 @@ package Tests.object;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -74,8 +73,6 @@ public class BCommentWindow implements CommentWindow {
         return this.driver.findElement(By.xpath("//span[contains(text(),'Cat0')]")).getText();
     }
 
-    private void getScreenshotAs(OutputType<byte[]> bytes) {
-    }
 }
 
 
