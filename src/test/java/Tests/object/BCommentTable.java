@@ -6,8 +6,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 public class BCommentTable implements CommentTable {
     private final WebDriver driver;
 
@@ -68,13 +66,14 @@ public class BCommentTable implements CommentTable {
     @Step("Verify presence of the category in comment categories ")
     public boolean verifyCategories(String expected) throws NoSuchElementException {
         try {
-            List<WebElement> categories = this.driver.findElements(By.xpath("//*[@class='categorycolumn']"));
-            for (WebElement row : categories) {
-                System.out.println(this.driver.findElement((By.xpath(String.format("//*[@class='categorycolumn' and contains(text(), \"%s\")]", expected)))));
+            for (WebElement row : this.driver.findElements(By.xpath("//*[@class='categorycolumn']"))) {
+                if (!row.getText().contains(expected)) {
+                    return false;
+                }
             }
             return true;
+
         } catch (NoSuchElementException e) {
-            e.printStackTrace();
             return false;
         }
     }
