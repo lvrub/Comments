@@ -53,7 +53,6 @@ public class Test22 {
         return new Object[][]{
                 {"!@#$%^&*", "The Comment Text field should contain alphanumeric characters only"},
                 {"ернорлдлор", "Please, select at least one category"}
-
         };
     }
 }
