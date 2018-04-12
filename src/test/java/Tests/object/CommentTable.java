@@ -15,4 +15,6 @@ public interface CommentTable {
     boolean isCommentInactive(String state);
 
     boolean verifyCategories(String expected);
+
+    boolean verifyCommentId(String id);
 }

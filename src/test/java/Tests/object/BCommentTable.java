@@ -6,6 +6,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class BCommentTable implements CommentTable {
     private final WebDriver driver;
 
@@ -76,6 +78,16 @@ public class BCommentTable implements CommentTable {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public boolean verifyCommentId(String id) {
+        List<WebElement> row = this.driver.findElements(By.xpath("//*[@class='numbercolumn']"));
+        for (WebElement e : row) {
+            id = row.get(row.size() - 1).getText();
+            return true;
+        }
+
+        return false;
     }
 
 }
