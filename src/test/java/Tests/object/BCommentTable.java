@@ -80,14 +80,11 @@ public class BCommentTable implements CommentTable {
         }
     }
 
-    public boolean verifyCommentId(String id) {
+    public String verifyCommentId(String id) {
         List<WebElement> row = this.driver.findElements(By.xpath("//*[@class='numbercolumn']"));
         for (WebElement e : row) {
             id = row.get(row.size() - 1).getText();
-            return true;
         }
-
-        return false;
+        return id;
     }
-
 }

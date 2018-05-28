@@ -16,5 +16,5 @@ public interface CommentTable {
 
     boolean verifyCategories(String expected);
 
-    boolean verifyCommentId(String id);
+    String verifyCommentId(String id);
 }
