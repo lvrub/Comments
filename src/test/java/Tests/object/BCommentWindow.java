@@ -16,7 +16,9 @@ public class BCommentWindow implements CommentWindow {
 
     @Step("Fill name for comment")
     public void fillCommentTextField(String commentText) {
+        this.driver.findElement(By.id("Text")).clear();
         this.driver.findElement(By.id("Text")).sendKeys(commentText);
+        this.driver.findElement(By.id("Number")).click(); //in order to change fous from the field
         this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
@@ -47,16 +49,31 @@ public class BCommentWindow implements CommentWindow {
         this.driver.findElement(By.name("CurSelect")).click();
     }
 
-    @Step("Fill name for comment")
-    public boolean isErrorMessageShown(String errorMessage) {
+    @Step("Check name length for new comment")
+    public boolean isErrorMessageShown(String message) {
         try {
-            this.driver.findElement(By.xpath(String.format("//*[@id='errorfield' and contains(text(), \"%s\")]", errorMessage)));
-            System.out.println(errorMessage);
+            this.driver.findElement(By.xpath(String.format("//span[@htmlfor='Text' and contains(text(), '%s')]", message))).getText();
             return true;
         } catch (NoSuchElementException e) {
+            System.out.println(e);
             return false;
         }
     }
+
+    @Step("Check max length of comment number")
+    public boolean showErrorMessageForNumberLength(String lengthMessage) {
+        System.out.println(lengthMessage + " went from tests111 ");
+        String lengthMessage1 = (this.driver.findElement(By.id("errorfield")).getText());
+        System.out.println(lengthMessage1 + " went from tests222 ");
+        if (lengthMessage1.equals(lengthMessage1)) {
+            System.out.println(lengthMessage + " went from tests ");
+            System.out.println(lengthMessage1 + " recieved here");
+            return true;
+        }
+        return false;
+    }
+
+
 
     @Step("Check comment name")
     public String commentText() {

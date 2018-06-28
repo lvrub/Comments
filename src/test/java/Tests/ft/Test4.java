@@ -8,21 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Test4 {
 
     private final WebDriver[] driver = new WebDriver[1];
-
-
-    {
-        this.driver().get("http://commentssprintone.azurewebsites.net");
-        this.driver().findElements(By.name("SelectedId")).get(0).click();
-        this.driver().findElement(By.xpath("//*[@value=\"Delete\"]")).click();
-        this.driver().findElement(By.xpath("//span[text()=\"Yes\"]")).click();
-        final String page = this.driver().getPageSource();
-        MatcherAssert.assertThat("Comment Text 0 is present", !page.contains("Comment Text 0"));
-    }
 
     @Test(description = "Deleting of a comments")
     @Description("This test verifies deleting a comments from table")
@@ -33,8 +25,11 @@ public class Test4 {
         this.driver().get("http://commentssprintone.azurewebsites.net");
         this.driver().findElements(By.name("SelectedId")).get(0).click();
         this.driver().findElement(By.xpath("//*[@value=\"Delete\"]")).click();
+        this.driver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         this.driver().findElement(By.xpath("//span[text()=\"Yes\"]")).click();
         final String page = this.driver().getPageSource();
+        this.driver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
         MatcherAssert.assertThat("Comment Text 0 is present", !page.contains("Comment Text 0"));
     }
 

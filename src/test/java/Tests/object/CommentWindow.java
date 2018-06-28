@@ -14,11 +14,13 @@ public interface CommentWindow {
 
     void addCategory();
 
-    boolean isErrorMessageShown(String errorMessage);
+    boolean isErrorMessageShown(String message);
 
     String commentText();
 
     String commentNumber();
 
     String selectedCategory();
+
+    boolean showErrorMessageForNumberLength(String lengthMessage);
 }
