@@ -30,7 +30,7 @@ public class Test8 {
     @Severity(SeverityLevel.CRITICAL)
     @Epic("Regression Suit")
     @Feature("Comment Inactivation")
-    public void test() {
+    public void test8() {
         commentPage.open();
         commentTable.checkExistingComment(0); // numeration list starts from "0"
         commentListActions.selectAction("Inactivate");

@@ -24,7 +24,7 @@ public class Test22 {
         this.commentWindow = new BCommentWindow(this.driver);
     }
 
-    @Test(dataProvider = "Data1", description = "Comment saving with special characters")
+    @Test(dataProvider = "Data1", description = "Comment saving with special characters", enabled = false)
     @Severity(SeverityLevel.MINOR)
     @Description("This test checks saving of comment with name containing special characters")
     @Epic("Regression Suit")

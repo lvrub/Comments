@@ -21,7 +21,7 @@ public class Test4 {
     @Severity(SeverityLevel.BLOCKER)
     @Epic("Regression Suit")
     @Feature("Comment deletion")
-    public void test() {
+    public void test4() {
         this.driver().get("http://commentssprintone.azurewebsites.net");
         this.driver().findElements(By.name("SelectedId")).get(0).click();
         this.driver().findElement(By.xpath("//*[@value=\"Delete\"]")).click();

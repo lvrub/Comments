@@ -25,7 +25,7 @@ public class Test2 {
     @Epic("Regression Suit")
     @Feature("Duplication of a comment")
 
-    public void test() {
+    public void test2() {
         commentPage.open();
         commentTable.checkExistingComment(0);
         commentPage.clickDuplicate();

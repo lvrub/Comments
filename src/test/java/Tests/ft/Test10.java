@@ -28,7 +28,7 @@ public class Test10 {
     @Description("This test checks table filtration of comments which contains required category")
     @Epic("Regression Suit")
     @Feature("Check category filtration")
-    public void test() {
+    public void test10() {
         commentPage.open();
         commentListStatus.selectCategoty("Cat4");
         commentListStatus.clickApplyStatus();
