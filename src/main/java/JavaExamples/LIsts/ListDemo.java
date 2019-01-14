@@ -33,6 +33,7 @@ public class ListDemo {
         // Replace 0th element with 5
         l1.set(0, 5);
         System.out.println(l1);
+
     }
 }
 
