@@ -29,15 +29,13 @@ public class TestWriteFile {
 
 //            writer = new BufferedWriter(new FileWriter(logFile));
 //            writer.write("Hello world!");
-            boolean a = logFile.exists();
-            System.out.println(a);
+            assert logFile.exists() : "File exists";
 
             String b = logFile.getAbsolutePath().toString();
 //            System.out.println(b);
 
             try (FileInputStream fin = new FileInputStream(b)) {
                 System.out.printf("File size: %d bytes \n", fin.available());
-                System.out.println("C:\\Automation\\" + b);
 
                 int i = -1;
                 while ((i = fin.read()) != -1) {
@@ -57,9 +55,4 @@ public class TestWriteFile {
             }
         }
     }
-}
-
-class ReadFiles {
-
-
 }
