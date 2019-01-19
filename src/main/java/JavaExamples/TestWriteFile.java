@@ -1,8 +1,6 @@
 package JavaExamples;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -15,10 +13,40 @@ public class TestWriteFile {
             File logFile = new File(timeLog);
 
             // This will output the full path where the file will be written to...
-            System.out.println(logFile.getCanonicalPath());
+            System.out.println(logFile.getAbsolutePath());
 
-            writer = new BufferedWriter(new FileWriter(logFile));
-            writer.write("Hello world!");
+            try (FileOutputStream fos = new FileOutputStream(timeLog)) {
+                String text = new SimpleDateFormat("yyyyMMdd_HHmmss").getCalendar().toString();
+                // перевод строки в байты
+                byte[] buffer = text.getBytes();
+
+                fos.write(buffer, 0, buffer.length);
+            } catch (IOException ex) {
+
+                System.out.println(ex.getMessage());
+            }
+            System.out.println("The file has been written");
+
+//            writer = new BufferedWriter(new FileWriter(logFile));
+//            writer.write("Hello world!");
+            boolean a = logFile.exists();
+            System.out.println(a);
+
+            String b = logFile.getAbsolutePath().toString();
+            System.out.println(b);
+
+            try (FileInputStream fin = new FileInputStream(b)) {
+                System.out.printf("File size: %d bytes \n", fin.available());
+                System.out.println("C:\\Automation\\" + b);
+
+                int i = -1;
+                while ((i = fin.read()) != -1) {
+                    System.out.print((char) i);
+                }
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -29,4 +57,9 @@ public class TestWriteFile {
             }
         }
     }
+}
+
+class ReadFiles {
+
+
 }

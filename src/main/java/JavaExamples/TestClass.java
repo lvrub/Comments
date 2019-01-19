@@ -44,7 +44,7 @@ class TestClass1 {
 class Main {
     public static void main(String[] args) {
         TestClass test = new TestClass();
-        TestClass1 test1 = new TestClass1("MerryRoom", 33);
+        TestClass1 test1 = new TestClass1("MerryRoom", 30);
         TestClass0 testClass0 = new TestClass0();
         TestClass1 test3 = new TestClass1(testClass0.b(), testClass0.a());
         test.setA(11);
