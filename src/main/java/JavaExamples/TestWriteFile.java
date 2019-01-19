@@ -16,11 +16,11 @@ public class TestWriteFile {
             System.out.println(logFile.getAbsolutePath());
 
             try (FileOutputStream fos = new FileOutputStream(timeLog)) {
-                String text = new SimpleDateFormat("yyyyMMdd_HHmmss").getCalendar().toString();
+                String text = new SimpleDateFormat().getTimeZone().getDisplayName().toString();
                 // перевод строки в байты
-                byte[] buffer = text.getBytes();
+//                byte[] buffer = text.getBytes();
 
-                fos.write(buffer, 0, buffer.length);
+                fos.write(text.getBytes());
             } catch (IOException ex) {
 
                 System.out.println(ex.getMessage());
@@ -33,7 +33,7 @@ public class TestWriteFile {
             System.out.println(a);
 
             String b = logFile.getAbsolutePath().toString();
-            System.out.println(b);
+//            System.out.println(b);
 
             try (FileInputStream fin = new FileInputStream(b)) {
                 System.out.printf("File size: %d bytes \n", fin.available());
