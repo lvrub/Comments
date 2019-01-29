@@ -12,16 +12,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Test32 {
-    protected final CommentsDriver driver;
-    private final CommentWindow commentWindow;
-    private final CommentPage commentPage;
-
-    public Test32() {
-        this.driver = new CommentsDriver();
-        this.commentWindow = new BCommentWindow(this.driver);
-        this.commentPage = new BCommentPage(this.driver);
-
-    }
+    protected final CommentsDriver driver = new CommentsDriver();
+    private final CommentWindow commentWindow = new BCommentWindow(this.driver);
+    private final CommentPage commentPage = new BCommentPage(this.driver);
 
     @BeforeMethod
     public void createDriver() {
@@ -31,7 +24,7 @@ public class Test32 {
 
     }
 
-    @Test(description = "Length validation for name and number strings", enabled = true)
+    @Test(description = "Length validation for name and number strings", enabled = true, groups = "Group1")
 
     public void test32() {
         commentWindow.fillCommentTextField("TESTTEST12TESTTEST12TESTTEST12TESTTEST12TESTTEST122");

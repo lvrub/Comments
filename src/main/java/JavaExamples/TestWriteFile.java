@@ -2,6 +2,7 @@ package JavaExamples;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 
 public class TestWriteFile {
@@ -9,14 +10,14 @@ public class TestWriteFile {
         BufferedWriter writer = null;
         try {
             //create a temporary file
-            String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            String timeLog = new SimpleDateFormat("yyyy_MM_dd_HH^mm^ss").format(Calendar.getInstance().getTime());
             File logFile = new File(timeLog);
 
             // This will output the full path where the file will be written to...
             System.out.println(logFile.getAbsolutePath());
 
             try (FileOutputStream fos = new FileOutputStream(timeLog)) {
-                String text = new SimpleDateFormat().getTimeZone().getDisplayName().toString();
+                String text = LocalDateTime.now().toString();
                 // перевод строки в байты
 //                byte[] buffer = text.getBytes();
 
@@ -37,7 +38,7 @@ public class TestWriteFile {
             try (FileInputStream fin = new FileInputStream(b)) {
                 System.out.printf("File size: %d bytes \n", fin.available());
 
-                int i = -1;
+                int i = 0;
                 while ((i = fin.read()) != -1) {
                     System.out.print((char) i);
                 }
@@ -50,7 +51,7 @@ public class TestWriteFile {
         } finally {
             try {
                 // Close the writer regardless of what happens...
-                writer.close();
+//                writer.close();
             } catch (Exception e) {
             }
         }

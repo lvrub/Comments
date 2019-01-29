@@ -19,7 +19,8 @@ public class Test2 {
     public void createDriver() throws ExceptionInInitializerError {
         this.driver.define();
     }
-    @Test(description = "Verify duplication of comment")
+
+    @Test(description = "Verify duplication of comment", groups = "New", dependsOnMethods = "Tests.ft.Test32.test32")
     @Description("This test verifies that uset is able to duplicate a comment")
     @Severity(SeverityLevel.NORMAL)
     @Epic("Regression Suit")

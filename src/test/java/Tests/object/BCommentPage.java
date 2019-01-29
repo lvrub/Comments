@@ -26,9 +26,7 @@ public class BCommentPage implements CommentPage {
 
     @Step("Go to last table page")
     public void navigateToLastPage() {
-        String s = this.driver.findElement(By.xpath("//td[@colspan='5']")).getText();
-        String[] pages = s.split(" ");
-        this.driver.findElement(By.xpath(String.format("//a[@href='/?page=%s']", pages.length - 1))).click();
+        this.driver.findElement(By.xpath("//a[contains(@href,\"page\")][last()-1]")).click();
     }
 
     @Step("Open window for new comment with duplicated existing info")

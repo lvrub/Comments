@@ -29,6 +29,8 @@ class TestClass1 {
     public TestClass1(String classRoom, int number) {
         this.classRoom1 = classRoom;
         this.number = number;
+
+        TestClass0 testClass0;
     }
 
     public String getName() {
