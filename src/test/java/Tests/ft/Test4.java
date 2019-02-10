@@ -35,7 +35,7 @@ public class Test4 {
 
     @BeforeMethod
     public void createDriver() {
-//     driver[0] = new FirefoxDriver();
+//     drive r[0] = new FirefoxDriver();
         driver[0] = new ChromeDriver();
     }
 

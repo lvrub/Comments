@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListOfNumbers {
+
     private static final int SIZE = 10;
-    private List<Integer> list;
+    private static List<Integer> list;
 
     public ListOfNumbers() {
         list = new ArrayList<Integer>(SIZE);
@@ -16,8 +17,9 @@ public class ListOfNumbers {
             list.add(new Integer(i));
     }
 
-    public void writeList() {
+    public static void main(String[] args) {
         PrintWriter out = null;
+        System.out.println(list.iterator().next().toString());
 
         try {
             System.out.println("Entering try statement");

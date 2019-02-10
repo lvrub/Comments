@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class Test2 {
     protected final CommentsDriver driver = new CommentsDriver();
     protected final CommentPage commentPage = new BCommentPage(driver);
@@ -18,6 +20,8 @@ public class Test2 {
     @BeforeMethod
     public void createDriver() throws ExceptionInInitializerError {
         this.driver.define();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     @Test(description = "Verify duplication of comment", groups = "New", dependsOnMethods = "Tests.ft.Test32.test32")
