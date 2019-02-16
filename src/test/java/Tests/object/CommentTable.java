@@ -28,6 +28,6 @@ public interface CommentTable {
 
     boolean verifyDeletingCommentWindowClosed();
 
-    boolean verifyDeletingMessage();
+    boolean verifyDeletingNotification();
 
 }

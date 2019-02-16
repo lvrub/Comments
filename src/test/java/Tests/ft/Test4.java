@@ -35,11 +35,7 @@ public class Test4 {
         commentTable.verifyCancelDeleteComment();
         commentTable.verifyDeletingCommentWindowClosed();
         commentTable.verifyDeletingComment();
-        commentTable.verifyDeletingMessage();
-
-
-
-
+        commentTable.verifyDeletingNotification();
     }
 
     @BeforeMethod
