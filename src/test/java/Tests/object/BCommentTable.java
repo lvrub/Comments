@@ -125,4 +125,10 @@ public class BCommentTable implements CommentTable {
         return true;
     }
 
+    public boolean verifyDeletingMessage() {
+        String deleteMessage = driver.findElement(By.xpath("//div[@id='infoField']")).getText();
+        Assert.assertEquals(deleteMessage, "Selected comments deleted successfull");
+        return true;
+    }
+
 }
