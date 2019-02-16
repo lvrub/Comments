@@ -1,4 +1,4 @@
-package JavaExamples.Factory;
+package JavaExamples.Patterns.Factory;
 
 public class JavaFactoryExample {
     /**

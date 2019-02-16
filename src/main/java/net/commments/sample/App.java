@@ -30,7 +30,7 @@ public class App {
             room.accept(student.get(i));
             come(student.get(i), git);
         }
-        a.getByStudent(b, andrey);
+        a.getByStudent(a, andrey);
         b.getByStudent(b, nastya);
         c.getByStudent(c, dima);
 

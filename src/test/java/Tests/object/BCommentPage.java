@@ -15,6 +15,7 @@ public class BCommentPage implements CommentPage {
 
     @Step("Open comments site")
     public void open() {
+        driver.get("http://commentssprintone.azurewebsites.net");
     }
 
     @Step("Open window for new comments ")

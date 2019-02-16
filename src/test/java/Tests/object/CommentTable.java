@@ -17,4 +17,15 @@ public interface CommentTable {
     boolean verifyCategories(String expected);
 
     String verifyCommentId(String id);
+
+    boolean verifyDeletingWindowName();
+
+    boolean verifyDeletingComment();
+
+    boolean verifyCancelDeleteComment();
+
+    boolean verifyDeletingWindowMessage();
+
+    boolean verifyDeletingCommentWindowClosed();
+
 }

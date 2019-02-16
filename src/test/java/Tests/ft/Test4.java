@@ -1,10 +1,11 @@
 package Tests.ft;
 
+import Tests.object.BCommentPage;
+import Tests.object.BCommentTable;
+import Tests.object.CommentPage;
+import Tests.object.CommentTable;
 import io.qameta.allure.*;
-import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import net.commments.sample.selenium.CommentsDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,8 +14,12 @@ import java.util.concurrent.TimeUnit;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Test4 {
+    protected final CommentsDriver driver = new CommentsDriver();
+    CommentPage commentPage = new BCommentPage(driver);
+    CommentTable commentTable = new BCommentTable(driver);
 
-    private final WebDriver[] driver = new WebDriver[1];
+
+//    private final WebDriver[] driver = new WebDriver[1];
 
     @Test(description = "Deleting of a comments")
     @Description("This test verifies deleting a comments from table")
@@ -22,29 +27,27 @@ public class Test4 {
     @Epic("Regression Suit")
     @Feature("Comment deletion")
     public void test4() {
-        this.driver().get("http://commentssprintone.azurewebsites.net");
-        this.driver().findElements(By.name("SelectedId")).get(0).click();
-        this.driver().findElement(By.xpath("//*[@value=\"Delete\"]")).click();
-        this.driver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-        this.driver().findElement(By.xpath("//span[text()=\"Yes\"]")).click();
-        final String page = this.driver().getPageSource();
-        this.driver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
-        MatcherAssert.assertThat("Comment Text 0 is present", !page.contains("Comment Text 0"));
+        commentPage.open();
+        commentTable.checkExistingComment(0);
+        commentTable.verifyDeletingWindowName();
+        commentTable.verifyDeletingWindowMessage();
+        commentTable.verifyCancelDeleteComment();
+        commentTable.verifyDeletingCommentWindowClosed();
+        commentTable.verifyDeletingComment();
+
     }
 
     @BeforeMethod
-    public void createDriver() {
-//     drive r[0] = new FirefoxDriver();
-        driver[0] = new ChromeDriver();
+    public void createDriver() throws ExceptionInInitializerError {
+        this.driver.define();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     @AfterMethod
     public void closeDriver() {
-        driver[0].close();
+        driver.close();
     }
 
-    private WebDriver driver() {
-        return this.driver[0];
-    }
 }

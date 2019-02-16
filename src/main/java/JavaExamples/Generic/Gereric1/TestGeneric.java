@@ -7,18 +7,18 @@ import java.util.List;
 
 public class TestGeneric {
     public static void main(String[] arg) {
-        List list = new LinkedList<>();
+        List list = new LinkedList();
         list.add("First");
         list.add("Second");
-        List<String> list2 = list;
-        for (Iterator<String> itemItr = list2.iterator(); itemItr.hasNext(); )
+//        List<String> list2 = list;
+        for (Iterator<String> itemItr = list.iterator(); itemItr.hasNext(); )
             System.out.println(itemItr.next());
 
         List<String> list1 = new LinkedList<String>();
         list1.add("First1");
         list1.add("Second1");
-        List list3 = list1;
-        for (Iterator<String> itemItr = list3.iterator(); itemItr.hasNext(); )
+//        List list3 = list1;
+        for (Iterator<String> itemItr = list1.iterator(); itemItr.hasNext(); )
             System.out.println(itemItr.next());
 
     }
@@ -51,18 +51,16 @@ class Pair<T1, T2> {
         object1 = one;
         object2 = two;
     }
+    public T1 getFirst() {
+        return object1;
+    }
+    public T2 getSecond() {
+        return object2;
+    }
 
     public static void main(String[] args) {
         Pair<Integer, String> pair = new Pair<Integer, String>(6, " Apr");
         System.out.println(pair.getFirst() + pair.getSecond());
-    }
-
-    public T1 getFirst() {
-        return object1;
-    }
-
-    public T2 getSecond() {
-        return object2;
     }
 }
 
@@ -75,17 +73,17 @@ class PairOfT<T> {
         object2 = two;
     }
 
-    public static void main(String[] args) {
-        Pair<Integer, String> pair = new Pair<Integer, String>(1, " Apr");
-        System.out.print(pair.getFirst() + pair.getSecond());
-    }
-
     public T getFirst() {
         return object1;
     }
 
     public T getSecond() {
         return object2;
+    }
+
+    public static void main(String[] args) {
+        Pair<Integer, String> pair = new Pair<Integer, String>(1, " Apr");
+        System.out.print(pair.getFirst() + pair.getSecond());
     }
 }
 
