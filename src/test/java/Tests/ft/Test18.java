@@ -11,19 +11,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class Test18 {
-    public final CommentsDriver driver;
-    public final CommentPage commentPage;
-    public final CommentWindow commentWindow;
-    public final CommentTable commentTable;
-
-
-    public Test18() {
-        this.driver = new CommentsDriver();
-        commentPage = new BCommentPage(this.driver);
-        commentWindow = new BCommentWindow(this.driver);
-        commentTable = new BCommentTable(this.driver);
-
-    }
+    public final CommentsDriver driver = new CommentsDriver();
+    public final CommentPage commentPage = new BCommentPage(this.driver);
+    public final CommentWindow commentWindow = new BCommentWindow(this.driver);
+    public final CommentTable commentTable = new BCommentTable(this.driver);
 
     @Test(dataProvider = "Name", description = "Comments saving with different valid name")
     @Severity(SeverityLevel.CRITICAL)

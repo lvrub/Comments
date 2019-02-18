@@ -25,7 +25,6 @@ public class Test32 {
     }
 
     @Test(description = "Length validation for name and number strings", enabled = true, groups = "Group1")
-
     public void test32() {
         commentWindow.fillCommentTextField("TESTTEST12TESTTEST12TESTTEST12TESTTEST12TESTTEST122");
         MatcherAssert.assertThat("Wrong error text", commentWindow.isErrorMessageShown("The maximum length of Comment Text field is 50 characters"));

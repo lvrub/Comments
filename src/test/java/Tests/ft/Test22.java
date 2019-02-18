@@ -14,15 +14,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class Test22 {
-    protected final CommentsDriver driver;
-    private final CommentPage commentPage;
-    private final CommentWindow commentWindow;
-
-    public Test22() {
-        this.driver = new CommentsDriver();
-        this.commentPage = new BCommentPage(this.driver);   /*why we  need it ?*/
-        this.commentWindow = new BCommentWindow(this.driver);
-    }
+    protected final CommentsDriver driver = new CommentsDriver();
+    private final CommentPage commentPage = new BCommentPage(this.driver);
+    private final CommentWindow commentWindow = new BCommentWindow(this.driver);
 
     @Test(dataProvider = "Data1", description = "Comment saving with special characters", enabled = false)
     @Severity(SeverityLevel.MINOR)

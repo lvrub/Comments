@@ -10,20 +10,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Test8 {
-    protected final CommentsDriver driver;
-    private final CommentPage commentPage;
-    private final CommentTable commentTable;
-    private final CommentListActions commentListActions;
-    private final CommentListStatus commentListStatus;
-
-    public Test8() {
-        this.driver = new CommentsDriver();
-        this.commentPage = new BCommentPage(this.driver);
-        this.commentTable = new BCommentTable(this.driver);
-        this.commentListActions = new BCommentListActions(this.driver);
-        this.commentListStatus = new BCommentListStatus(this.driver);
-
-    }
+    protected final CommentsDriver driver = new CommentsDriver();
+    private final CommentPage commentPage = new BCommentPage(this.driver);
+    private final CommentTable commentTable = new BCommentTable(this.driver);
+    private final CommentListActions commentListActions = new BCommentListActions(this.driver);
+    private final CommentListStatus commentListStatus = new BCommentListStatus(this.driver);
 
     @Test(description = "Inactivation of selected comment")
     @Description("This test verifies inactivating of comments from table")

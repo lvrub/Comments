@@ -83,6 +83,7 @@ public class BCommentTable implements CommentTable {
         }
     }
 
+    @Step("Verify correct comments ID")
     public String verifyCommentId(String id) {
         List<WebElement> row = this.driver.findElements(By.xpath("//*[@class='numbercolumn']"));
         for (WebElement e : row) {
@@ -91,6 +92,7 @@ public class BCommentTable implements CommentTable {
         return id;
     }
 
+    @Step("Verify correct name for Deleting popup")
     public boolean verifyDeletingWindowName() {
         this.driver.findElement(By.xpath("//*[@value='Delete']")).click();
         String deleteWindowName = driver.findElement(By.id("ui-dialog-title-dialog")).getText();
@@ -98,6 +100,7 @@ public class BCommentTable implements CommentTable {
         return true;
     }
 
+    @Step("Verify deleting of comment")
     public boolean verifyDeletingComment() {
         this.driver.findElement(By.xpath("//*[@value=\'Delete\']")).click();
         this.driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
@@ -106,6 +109,7 @@ public class BCommentTable implements CommentTable {
         return true;
     }
 
+    @Step("Verify closing of Delete popup")
     public boolean verifyDeletingCommentWindowClosed() {
         String window = this.driver.findElement(By.xpath("//*[contains(@class,'ui-draggable')]")).getText();
         Assert.assertFalse(false, window);

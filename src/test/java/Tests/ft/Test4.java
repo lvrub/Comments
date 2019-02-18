@@ -19,8 +19,6 @@ public class Test4 {
     CommentTable commentTable = new BCommentTable(driver);
 
 
-//    private final WebDriver[] driver = new WebDriver[1];
-
     @Test(description = "Deleting of a comments")
     @Description("This test verifies deleting a comments from table")
     @Severity(SeverityLevel.BLOCKER)

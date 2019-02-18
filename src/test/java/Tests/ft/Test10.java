@@ -9,19 +9,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Test10 {
-    protected final CommentsDriver driver;
-    private final CommentListStatus commentListStatus;
-    private final CommentPage commentPage;
-    private final CommentTable commentTable;
-
-    public Test10() {
-        this.driver = new CommentsDriver();
-        this.commentListStatus = new BCommentListStatus(this.driver);
-        this.commentPage = new BCommentPage(this.driver);
-        this.commentTable = new BCommentTable(this.driver);
-
-
-    }
+    protected final CommentsDriver driver = new CommentsDriver();
+    private final CommentListStatus commentListStatus = new BCommentListStatus(this.driver);
+    private final CommentPage commentPage = new BCommentPage(this.driver);
+    private final CommentTable commentTable = new BCommentTable(this.driver);
 
     @Test(description = "Filtration of comments with special category")
     @Severity(SeverityLevel.NORMAL)
