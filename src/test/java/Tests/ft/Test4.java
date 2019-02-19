@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 public class Test4 extends BaseTestCase {
 
-
     BCommentTable commentTable = new BCommentTable(driver);
     BCommentPage commentPage = new BCommentPage(driver, commentTable);
 
