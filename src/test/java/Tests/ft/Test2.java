@@ -10,6 +10,7 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 public class Test2 extends BaseTestCase {
+
     protected final BCommentPage commentPage = new BCommentPage(driver);
     protected final BCommentTable commentTable = new BCommentTable(driver);
     protected final BCommentWindow commentWindow = new BCommentWindow(driver);
