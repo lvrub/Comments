@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class BCommentTable implements CommentTable {
+public class BCommentTable { //implements CommentTable {
     private final WebDriver driver;
 
     public BCommentTable(WebDriver webDriver) {
@@ -19,8 +19,9 @@ public class BCommentTable implements CommentTable {
     BCommentTable bCommentTable;
 
     @Step("Check comment check-box in table")
-    public void checkExistingComment(int numberComment) {
+    public BCommentTable checkExistingComment(int numberComment) {
         this.driver.findElements(By.name("SelectedId")).get(numberComment).click();
+        return this;
     }
 
     @Step("Check inactivate comment status in table")
@@ -93,11 +94,11 @@ public class BCommentTable implements CommentTable {
     }
 
     @Step("Verify correct name for Deleting popup")
-    public boolean verifyDeletingWindowName() {
+    public BCommentTable verifyDeletingWindowName() {
         this.driver.findElement(By.xpath("//*[@value='Delete']")).click();
         String deleteWindowName = driver.findElement(By.id("ui-dialog-title-dialog")).getText();
         Assert.assertEquals("Comments Application", deleteWindowName);
-        return true;
+        return this;
     }
 
     @Step("Verify deleting of comment")

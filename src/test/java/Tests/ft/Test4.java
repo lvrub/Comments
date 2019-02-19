@@ -1,22 +1,17 @@
 package Tests.ft;
 
+import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
-import Tests.object.CommentPage;
-import Tests.object.CommentTable;
 import io.qameta.allure.*;
-import net.commments.sample.selenium.CommentsDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Test4 {
-    protected final CommentsDriver driver = new CommentsDriver();
-    CommentPage commentPage = new BCommentPage(driver);
-    CommentTable commentTable = new BCommentTable(driver);
+public class Test4 extends BaseTestCase {
+
+
+    BCommentTable commentTable = new BCommentTable(driver);
+    BCommentPage commentPage = new BCommentPage(driver, commentTable);
 
 
     @Test(description = "Deleting of a comments")
@@ -26,26 +21,15 @@ public class Test4 {
     @Feature("Comment deletion")
     public void test4() {
 
-        commentPage.open();
-        commentTable.checkExistingComment(0);
-        commentTable.verifyDeletingWindowName();
-        commentTable.verifyDeletingWindowMessage();
+        commentPage.open()
+                .checkExistingComment(0)
+                .verifyDeletingWindowName()
+                .verifyDeletingWindowMessage();
         commentTable.verifyCancelDeleteComment();
         commentTable.verifyDeletingCommentWindowClosed();
         commentTable.verifyDeletingComment();
         commentTable.verifyDeletingNotification();
     }
 
-    @BeforeMethod
-    public void createDriver() throws ExceptionInInitializerError {
-        this.driver.define();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }
-
-    @AfterMethod
-    public void closeDriver() {
-        driver.close();
-    }
 
 }

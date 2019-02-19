@@ -6,16 +6,23 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentPage implements CommentPage {
+public class BCommentPage {// implements CommentPage {
     private final WebDriver driver;
+    private BCommentTable bCommentTable;
 
     public BCommentPage(WebDriver webDriver) {
         this.driver = webDriver;
     }
 
+    public BCommentPage(WebDriver webDriver, BCommentTable bCommentTable) {
+        this.driver = webDriver;
+        this.bCommentTable = bCommentTable;
+    }
+
     @Step("Open comments site")
-    public void open() {
+    public BCommentTable open() {
         driver.get("http://commentssprintone.azurewebsites.net");
+        return bCommentTable;
     }
 
     @Step("Open window for new comments ")

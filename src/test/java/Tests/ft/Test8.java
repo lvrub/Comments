@@ -11,8 +11,9 @@ import org.testng.annotations.Test;
 
 public class Test8 {
     protected final CommentsDriver driver = new CommentsDriver();
-    private final CommentPage commentPage = new BCommentPage(this.driver);
-    private final CommentTable commentTable = new BCommentTable(this.driver);
+
+    private final BCommentTable commentTable = new BCommentTable(this.driver);
+    private final BCommentPage commentPage = new BCommentPage(this.driver, commentTable);
     private final CommentListActions commentListActions = new BCommentListActions(this.driver);
     private final CommentListStatus commentListStatus = new BCommentListStatus(this.driver);
 

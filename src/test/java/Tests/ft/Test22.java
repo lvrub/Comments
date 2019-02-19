@@ -2,7 +2,6 @@ package Tests.ft;
 
 import Tests.object.BCommentPage;
 import Tests.object.BCommentWindow;
-import Tests.object.CommentPage;
 import Tests.object.CommentWindow;
 import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
@@ -15,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class Test22 {
     protected final CommentsDriver driver = new CommentsDriver();
-    private final CommentPage commentPage = new BCommentPage(this.driver);
+    private final BCommentPage commentPage = new BCommentPage(this.driver);
     private final CommentWindow commentWindow = new BCommentWindow(this.driver);
 
     @Test(dataProvider = "Data1", description = "Comment saving with special characters", enabled = false)

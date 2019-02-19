@@ -2,7 +2,6 @@ package Tests.ft;
 
 import Tests.object.BCommentPage;
 import Tests.object.BCommentWindow;
-import Tests.object.CommentPage;
 import Tests.object.CommentWindow;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
@@ -14,7 +13,7 @@ import org.testng.annotations.Test;
 public class Test32 {
     protected final CommentsDriver driver = new CommentsDriver();
     private final CommentWindow commentWindow = new BCommentWindow(this.driver);
-    private final CommentPage commentPage = new BCommentPage(this.driver);
+    private final BCommentPage commentPage = new BCommentPage(this.driver);
 
     @BeforeMethod
     public void createDriver() {
@@ -25,6 +24,7 @@ public class Test32 {
     }
 
     @Test(description = "Length validation for name and number strings", enabled = true, groups = "Group1")
+
     public void test32() {
         commentWindow.fillCommentTextField("TESTTEST12TESTTEST12TESTTEST12TESTTEST12TESTTEST122");
         MatcherAssert.assertThat("Wrong error text", commentWindow.isErrorMessageShown("The maximum length of Comment Text field is 50 characters"));

@@ -73,8 +73,6 @@ public class BCommentWindow implements CommentWindow {
         return false;
     }
 
-
-
     @Step("Check comment name")
     public String commentText() {
         return this.driver.findElement(By.xpath("*//input[@id='Text']")).getAttribute("value");
@@ -91,6 +89,3 @@ public class BCommentWindow implements CommentWindow {
     }
 
 }
-
-
-

@@ -1,6 +1,9 @@
 package Tests.ft;
 
-import Tests.object.*;
+import Tests.object.BCommentPage;
+import Tests.object.BCommentTable;
+import Tests.object.BCommentWindow;
+import Tests.object.CommentWindow;
 import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
@@ -12,9 +15,9 @@ import org.testng.annotations.Test;
 
 public class Test18 {
     public final CommentsDriver driver = new CommentsDriver();
-    public final CommentPage commentPage = new BCommentPage(this.driver);
+    public final BCommentPage commentPage = new BCommentPage(this.driver);
     public final CommentWindow commentWindow = new BCommentWindow(this.driver);
-    public final CommentTable commentTable = new BCommentTable(this.driver);
+    public final BCommentTable commentTable = new BCommentTable(this.driver);
 
     @Test(dataProvider = "Name", description = "Comments saving with different valid name")
     @Severity(SeverityLevel.CRITICAL)

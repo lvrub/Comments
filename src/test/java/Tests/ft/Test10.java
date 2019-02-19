@@ -1,6 +1,9 @@
 package Tests.ft;
 
-import Tests.object.*;
+import Tests.object.BCommentListStatus;
+import Tests.object.BCommentPage;
+import Tests.object.BCommentTable;
+import Tests.object.CommentListStatus;
 import io.qameta.allure.*;
 import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
@@ -11,8 +14,8 @@ import org.testng.annotations.Test;
 public class Test10 {
     protected final CommentsDriver driver = new CommentsDriver();
     private final CommentListStatus commentListStatus = new BCommentListStatus(this.driver);
-    private final CommentPage commentPage = new BCommentPage(this.driver);
-    private final CommentTable commentTable = new BCommentTable(this.driver);
+    private final BCommentPage commentPage = new BCommentPage(this.driver);
+    private final BCommentTable commentTable = new BCommentTable(this.driver);
 
     @Test(description = "Filtration of comments with special category")
     @Severity(SeverityLevel.NORMAL)
