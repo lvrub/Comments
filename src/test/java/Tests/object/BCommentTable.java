@@ -5,11 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.util.List;
 
-public class BCommentTable { //implements CommentTable {
+public class BCommentTable {
     private final WebDriver driver;
 
     public BCommentTable(WebDriver webDriver) {
@@ -93,51 +92,6 @@ public class BCommentTable { //implements CommentTable {
         return id;
     }
 
-    @Step("Verify correct name for Deleting popup")
-    public BCommentTable verifyDeletingWindowName() {
-        this.driver.findElement(By.xpath("//*[@value='Delete']")).click();
-        String deleteWindowName = driver.findElement(By.id("ui-dialog-title-dialog")).getText();
-        Assert.assertEquals("Comments Application", deleteWindowName);
-        return this;
-    }
 
-    @Step("Verify deleting of comment")
-    public boolean verifyDeletingComment() {
-        this.driver.findElement(By.xpath("//*[@value=\'Delete\']")).click();
-        this.driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
-        String existComment = driver.findElement(By.xpath("//td[contains(text(),'Comment Text')][1]")).getText();
-        Assert.assertEquals(existComment, "Comment Text 1");
-        return true;
-    }
-
-    @Step("Verify closing of Delete popup")
-    public boolean verifyDeletingCommentWindowClosed() {
-        String window = this.driver.findElement(By.xpath("//*[contains(@class,'ui-draggable')]")).getText();
-        Assert.assertFalse(false, window);
-        return true;
-    }
-
-    public boolean verifyCancelDeleteComment() {
-        this.driver.findElement(By.xpath("//span[contains(text(),'No')]")).click();
-        String existComment = driver.findElement(By.xpath("//td[contains(text(),'Comment Text')][1]")).getText();
-        Assert.assertEquals("Comment Text 0", existComment);
-        return true;
-    }
-
-    public boolean verifyDeletingWindowMessage() {
-        String deleteWindowMessage = driver.findElement(By.xpath("//p[@id='msgText']")).getText();
-        Assert.assertEquals("Delete?", deleteWindowMessage);
-        return true;
-    }
-
-    public boolean verifyDeletingNotification() {
-        try {
-            String deleteMessage = driver.findElement(By.xpath("//div[@id='infoField']")).getText();
-            Assert.assertEquals(deleteMessage, "Selected comments deleted successfull");
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 
 }

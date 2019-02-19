@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class Test4 extends BaseTestCase {
 
     BCommentTable commentTable = new BCommentTable(driver);
-    BCommentPage commentPage = new BCommentPage(driver, commentTable);
+    BCommentPage commentPage = new BCommentPage(driver);
 
 
     @Test(description = "Deleting of a comments")
@@ -20,14 +20,14 @@ public class Test4 extends BaseTestCase {
     @Feature("Comment deletion")
     public void test4() {
 
-        commentPage.open()
-                .checkExistingComment(0)
-                .verifyDeletingWindowName()
-                .verifyDeletingWindowMessage();
-        commentTable.verifyCancelDeleteComment();
-        commentTable.verifyDeletingCommentWindowClosed();
-        commentTable.verifyDeletingComment();
-        commentTable.verifyDeletingNotification();
+        commentPage.open();
+        commentTable.checkExistingComment(0);
+        commentPage.verifyDeletingWindowName()
+                .verifyDeletingWindowMessage()
+                .verifyCancelDeleteComment()
+                .verifyDeletingCommentWindowClosed()
+                .verifyDeletingComment()
+                .verifyDeletingNotification();
     }
 
 

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class Test8 extends BaseTestCase {
 
     private final BCommentTable commentTable = new BCommentTable(this.driver);
-    private final BCommentPage commentPage = new BCommentPage(this.driver, commentTable);
+    private final BCommentPage commentPage = new BCommentPage(this.driver /*,commentTable*/);
     private final BCommentListActions commentListActions = new BCommentListActions(this.driver);
     private final BCommentListStatus commentListStatus = new BCommentListStatus(this.driver);
 
