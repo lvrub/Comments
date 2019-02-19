@@ -28,19 +28,22 @@ public class BCommentPage {
     }
 
     @Step("Open window for new comments ")
-    public void clickNewComment() {
+    public BCommentPage clickNewComment() {
         this.driver.findElement(By.id("newbutton")).click();
         this.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        return this;
     }
 
     @Step("Go to last table page")
-    public void navigateToLastPage() {
+    public BCommentPage navigateToLastPage() {
         this.driver.findElement(By.xpath("//a[contains(@href,\"page\")][last()-1]")).click();
+        return this;
     }
 
     @Step("Open window for new comment with duplicated existing info")
-    public void clickDuplicate() {
+    public BCommentPage clickDuplicate() {
         this.driver.findElement(By.xpath("//*[@id='command-navigation']/input[1]")).click();
+        return this;
     }
 
     @Step("Verify correct name for Deleting popup")
