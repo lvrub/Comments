@@ -1,19 +1,15 @@
 package Tests.ft;
 
+import Tests.BaseTestCase;
 import Tests.object.BCommentListStatus;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
-import Tests.object.CommentListStatus;
 import io.qameta.allure.*;
-import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Test10 {
-    protected final CommentsDriver driver = new CommentsDriver();
-    private final CommentListStatus commentListStatus = new BCommentListStatus(this.driver);
+public class Test10 extends BaseTestCase {
+    private final BCommentListStatus commentListStatus = new BCommentListStatus(this.driver);
     private final BCommentPage commentPage = new BCommentPage(this.driver);
     private final BCommentTable commentTable = new BCommentTable(this.driver);
 
@@ -41,15 +37,5 @@ public class Test10 {
         MatcherAssert.assertThat("Comment Text 24 is not present", !page1.contains("Comment Text 24"));
         MatcherAssert.assertThat("Comment Text 29 is not present", !page1.contains("Comment Text 29"));
 
-    }
-
-    @BeforeMethod
-    public void createDriver() {
-        this.driver.define();
-    }
-
-    @AfterMethod
-    public void closeDriver() {
-        this.driver.close();
     }
 }

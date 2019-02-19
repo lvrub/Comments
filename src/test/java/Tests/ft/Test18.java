@@ -1,22 +1,19 @@
 package Tests.ft;
 
+import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
-import Tests.object.CommentWindow;
 import io.qameta.allure.*;
-import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Test18 {
-    public final CommentsDriver driver = new CommentsDriver();
+public class Test18 extends BaseTestCase {
+
     public final BCommentPage commentPage = new BCommentPage(this.driver);
-    public final CommentWindow commentWindow = new BCommentWindow(this.driver);
+    public final BCommentWindow commentWindow = new BCommentWindow(this.driver);
     public final BCommentTable commentTable = new BCommentTable(this.driver);
 
     @Test(dataProvider = "Name", description = "Comments saving with different valid name")
@@ -36,16 +33,6 @@ public class Test18 {
         MatcherAssert.assertThat(commentTable.verifyCommentId(""), Matchers.is("111"));
         MatcherAssert.assertThat(name + " is present", commentTable.isNewCommentTextCorrect(name));
 
-    }
-
-    @BeforeMethod
-    public void createDriver() {
-        this.driver.define();
-    }
-
-    @AfterMethod
-    public void closeDriver() {
-        this.driver.close();
     }
 
     @DataProvider

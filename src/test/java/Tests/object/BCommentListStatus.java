@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentListStatus implements CommentListStatus {
+public class BCommentListStatus { //implements CommentListStatus {
     public final WebDriver driver;
 
     public BCommentListStatus(WebDriver driver) {

@@ -1,32 +1,21 @@
 package Tests.ft;
 
+import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
 import io.qameta.allure.*;
-import net.commments.sample.selenium.CommentsDriver;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
-public class Test2 {
-    protected final CommentsDriver driver = new CommentsDriver();
+public class Test2 extends BaseTestCase {
     protected final BCommentPage commentPage = new BCommentPage(driver);
     protected final BCommentTable commentTable = new BCommentTable(driver);
     protected final BCommentWindow commentWindow = new BCommentWindow(driver);
 
-    @BeforeMethod
-    public void createDriver() throws ExceptionInInitializerError {
-        this.driver.define();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-    }
-
-    @Test(description = "Verify duplication of comment", groups = "New", dependsOnMethods = "Tests.ft.Test32.test32")
+    @Test(description = "Verify duplication of comment", groups = "New" /*,dependsOnMethods = "Tests.ft.Test32.test32"*/)
     @Description("This test verifies that uset is able to duplicate a comment")
     @Severity(SeverityLevel.NORMAL)
     @Epic("Regression Suit")
@@ -45,11 +34,6 @@ public class Test2 {
         MatcherAssert.assertThat("Text is correct", commentTable.isNewCommentTextCorrect("Copy of Comment Text 0"));
         MatcherAssert.assertThat("Number is correct", commentTable.isNewCommentNumberCorrect("77"));
         MatcherAssert.assertThat("Category is correct", commentTable.isNewCommentCategoryCorrect("Cat0"));
-    }
-
-    @AfterMethod
-    public void closeDriver() {
-        this.driver.quit();
     }
 
 }

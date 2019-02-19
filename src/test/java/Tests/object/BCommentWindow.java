@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentWindow implements CommentWindow {
+public class BCommentWindow { //implements CommentWindow {
     private final WebDriver driver;
 
     public BCommentWindow(WebDriver webDriver) {
