@@ -5,7 +5,6 @@ import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
-//import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Test4 extends BaseTestCase {
 
