@@ -8,18 +8,22 @@ import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentPage {
+public class BCommentPage extends BasePages {
     private WebDriver driver;
-//    private BCommentTable bCommentTable;
+    private BCommentTable bCommentTable;
 
     public BCommentPage(WebDriver webDriver) {
         this.driver = webDriver;
     }
 
-//    public BCommentPage(WebDriver webDriver ,BCommentTable bCommentTable) {
-//    {this.driver = webDriver;
-//        this.bCommentTable = bCommentTable;
-//    }
+    public BCommentPage(WebDriver webDriver, BCommentTable bCommentTable) {
+        this.driver = webDriver;
+        this.bCommentTable = bCommentTable;
+    }
+
+    public BasePages returnContext() {
+        return (new BCommentTable(driver));
+    }
 
     @Step("Open comments site")
     public BCommentPage open() {

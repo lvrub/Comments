@@ -12,7 +12,6 @@ public class Test4 extends BaseTestCase {
     BCommentTable commentTable = new BCommentTable(driver);
     BCommentPage commentPage = new BCommentPage(driver);
 
-
     @Test(description = "Deleting of a comments")
     @Description("This test verifies deleting a comments from table")
     @Severity(SeverityLevel.BLOCKER)
@@ -20,9 +19,11 @@ public class Test4 extends BaseTestCase {
     @Feature("Comment deletion")
     public void test4() {
 
-        commentPage.open();
-        commentTable.checkExistingComment(0);
-        commentPage.verifyDeletingWindowName()
+        commentPage.open()
+                .returnTableContext(commentTable)
+                .checkExistingComment(0)
+                .returnPageContext(commentPage)
+                .verifyDeletingWindowName()
                 .verifyDeletingWindowMessage()
                 .verifyCancelDeleteComment()
                 .verifyDeletingCommentWindowClosed()

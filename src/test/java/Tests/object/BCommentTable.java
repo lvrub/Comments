@@ -8,14 +8,20 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class BCommentTable {
+public class BCommentTable extends BasePages {
     private final WebDriver driver;
 
     public BCommentTable(WebDriver webDriver) {
         this.driver = webDriver;
     }
 
-    BCommentTable bCommentTable;
+//    public BCommentTable(WebDriver webDriver,BCommentPage bCommentPage) {
+//        this.driver = webDriver;
+//    }
+
+    public BasePages returnContext() {
+        return (new BCommentPage(driver));
+    }
 
     @Step("Check comment check-box in table")
     public BCommentTable checkExistingComment(int numberComment) {

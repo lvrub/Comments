@@ -21,11 +21,11 @@ public class CommentsDriver implements WebDriver {
         this.driver[0] = webDriver;
     }
 
-    public void define() {
+    public void defineChrome() {
         this.define(new ChromeDriver());
     }
 
-    public void define1() {
+    public void defineFF() {
         this.define(new FirefoxDriver());
     }
 
