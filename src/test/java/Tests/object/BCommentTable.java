@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -27,12 +28,14 @@ public class BCommentTable extends BasePages {
     }
 
     @Step("Verify comment number in table")
-    public boolean isNewCommentNumberCorrect(String number) {
+    public BCommentTable isNewCommentNumberCorrect(String actualNumber, String expectedNumber) {
         try {
-            this.driver.findElement(By.xpath(String.format("//td[@class='numbercolumn'and contains(text(),'%s')]", number))).getText();
-            return true;
+            String number = this.driver.findElement(By.xpath(String.format("//td[@class='numbercolumn'and contains(text(),'%s')]", actualNumber))).getText();
+            Assert.assertFalse(number == null);
+            Assert.assertEquals(number, expectedNumber, "Numbers are not equal:");
+            return this;
         } catch (NoSuchElementException e) {
-            return false;
+            return this;
         }
     }
 
@@ -46,13 +49,26 @@ public class BCommentTable extends BasePages {
         }
     }
 
-    @Step("Verify comment category in table")
-    public boolean isNewCommentCategoryCorrect(String category) {
+    @Step("Verify comment name in table")
+    public BCommentTable verifyCommentTextCorrect(String commentName) {
         try {
-            String s = this.driver.findElement(By.xpath(String.format("//*[@class='categorycolumn' and contains(text(), '%s')]", category))).getText();
-            return true;
+            String commentTextTable = this.driver.findElement(By.xpath("//td[@class='textcolumn']")).getText();
+            Assert.assertEquals(commentName, commentTextTable);
+            return this;
         } catch (NoSuchElementException e) {
-            return false;
+            return this;
+        }
+    }
+
+
+    @Step("Verify comment category in table")
+    public BCommentTable isNewCommentCategoryCorrect(String actualCategory, String expectedCategory) {
+        try {
+            String category = this.driver.findElement(By.xpath(String.format("//*[@class='categorycolumn' and contains(text(), '%s')]", actualCategory))).getText();
+            Assert.assertEquals(category, expectedCategory);
+            return this;
+        } catch (NoSuchElementException e) {
+            return this;
         }
     }
 

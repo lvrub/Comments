@@ -5,7 +5,6 @@ import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
 import io.qameta.allure.*;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
 public class Test2 extends BaseTestCase {
@@ -32,16 +31,14 @@ public class Test2 extends BaseTestCase {
                 .verifyCommentText("Copy of Comment Text 0")
                 .verifyCommentNumber("0")
                 .verifyCommentCategory("Cat0")
-//        MatcherAssert.assertThat(commentWindow.commentText(), Matchers.is("Copy of Comment Text 0"));
-//        MatcherAssert.assertThat(commentWindow.commentNumber(), Matchers.is("0"));
-//        MatcherAssert.assertThat(commentWindow.selectedCategory(), Matchers.is("Cat0"));
                 .fillCommentNumber("77")
                 .saveCommentReturnInTable()
                 .returnPage(commentPage)
-                .navigateToLastPage();
-        MatcherAssert.assertThat("Text is correct", commentTable.isNewCommentTextCorrect("Copy of Comment Text 0"));
-        MatcherAssert.assertThat("Number is correct", commentTable.isNewCommentNumberCorrect("77"));
-        MatcherAssert.assertThat("Category is correct", commentTable.isNewCommentCategoryCorrect("Cat0"));
+                .navigateToLastPage()
+                .returnPage(commentTable)
+                .verifyCommentTextCorrect("Copy of Comment Text 0")
+                .isNewCommentNumberCorrect("77", "77")
+                .isNewCommentCategoryCorrect("Cat0", "Cat0");
     }
 
 }
