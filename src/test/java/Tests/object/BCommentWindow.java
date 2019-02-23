@@ -4,10 +4,11 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentWindow {
+public class BCommentWindow extends BasePages {
     private final WebDriver driver;
 
     public BCommentWindow(WebDriver webDriver) {
@@ -23,9 +24,10 @@ public class BCommentWindow {
     }
 
     @Step("Fill number for comment")
-    public void fillCommentNumber(String commentNumber) {
+    public BCommentWindow fillCommentNumber(String commentNumber) {
         this.driver.findElement(By.id("Number")).clear();
         this.driver.findElement(By.id("Number")).sendKeys(commentNumber);
+        return this;
     }
 
     @Step("Save a comment")
@@ -34,8 +36,9 @@ public class BCommentWindow {
     }
 
     @Step("Navigate to table")
-    public void saveCommentReturnInTable() {
+    public BCommentWindow saveCommentReturnInTable() {
         this.driver.findElement(By.xpath("//*[@class=\"buttonAsLink\" and @value ='Save & Return']")).click();
+        return this;
     }
 
     @Step("Show error message")
@@ -73,19 +76,40 @@ public class BCommentWindow {
         return false;
     }
 
-    @Step("Check comment name")
+    @Step("Get comment name")
     public String commentText() {
         return this.driver.findElement(By.xpath("*//input[@id='Text']")).getAttribute("value");
     }
 
-    @Step("Check comment number")
+    @Step("Check comment name")
+    public BCommentWindow verifyCommentText(String commentName) {
+        String commentExistingName = driver.findElement(By.xpath("*//input[@id='Text']")).getAttribute("value");
+        Assert.assertEquals(commentExistingName, commentName, "Expected comment name doesn't meet existing ");
+        return this;
+    }
+
+    @Step("Get comment number")
     public String commentNumber() {
         return this.driver.findElement(By.xpath("*//input[@id='Number']")).getAttribute("value");
+    }
+
+    @Step("Check comment number")
+    public BCommentWindow verifyCommentNumber(String commentNumber) {
+        String commentExistingNumber = driver.findElement(By.xpath("*//input[@id='Number']")).getAttribute("value");
+        Assert.assertEquals(commentExistingNumber, commentNumber, "Expected comment number doesn't meet existing ");
+        return this;
     }
 
     @Step("Check comment category")
     public String selectedCategory() {
         return this.driver.findElement(By.xpath("//span[contains(text(),'Cat0')]")).getText();
+    }
+
+    @Step("Check comment number")
+    public BCommentWindow verifyCommentCategory(String commentCategory) {
+        String commentExistingCategory = driver.findElement(By.xpath("//span[contains(text(),'Cat0')]")).getText();
+        Assert.assertEquals(commentExistingCategory, commentCategory, "Expected comment number doesn't meet existing ");
+        return this;
     }
 
 }

@@ -16,14 +16,10 @@ public class BCommentPage extends BasePages {
         this.driver = webDriver;
     }
 
-    public BCommentPage(WebDriver webDriver, BCommentTable bCommentTable) {
-        this.driver = webDriver;
-        this.bCommentTable = bCommentTable;
-    }
-
-    public BasePages returnContext() {
-        return (new BCommentTable(driver));
-    }
+//    public BCommentPage(WebDriver webDriver, BCommentTable bCommentTable) {
+//        this.driver = webDriver;
+//        this.bCommentTable = bCommentTable;
+//    }
 
     @Step("Open comments site")
     public BCommentPage open() {

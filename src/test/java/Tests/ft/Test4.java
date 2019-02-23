@@ -19,9 +19,9 @@ public class Test4 extends BaseTestCase {
     public void test4() {
 
         commentPage.open()
-                .returnTableContext(commentTable)
+                .returnPage(commentTable)
                 .checkExistingComment(0)
-                .returnPageContext(commentPage)
+                .returnPage(commentPage)
                 .verifyDeletingWindowName()
                 .verifyDeletingWindowMessage()
                 .verifyCancelDeleteComment()
@@ -29,6 +29,5 @@ public class Test4 extends BaseTestCase {
                 .verifyDeletingComment()
                 .verifyDeletingNotification();
     }
-
 
 }

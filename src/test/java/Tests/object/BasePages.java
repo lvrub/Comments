@@ -2,11 +2,11 @@ package Tests.object;
 
 public class BasePages {
 
-    public BCommentPage returnPageContext(BCommentPage commentPage) {
-        return (commentPage);
+    public <T extends BasePages> T returnPage(T page) {
+        return page;
     }
 
-    public BCommentTable returnTableContext(BCommentTable commentTable) {
-        return (commentTable);
-    }
+//    public BCommentTable returnTableContext(BCommentTable commentTable) {
+//        return (commentTable);
+//    }
 }

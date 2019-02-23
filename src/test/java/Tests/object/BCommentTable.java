@@ -15,14 +15,6 @@ public class BCommentTable extends BasePages {
         this.driver = webDriver;
     }
 
-//    public BCommentTable(WebDriver webDriver,BCommentPage bCommentPage) {
-//        this.driver = webDriver;
-//    }
-
-    public BasePages returnContext() {
-        return (new BCommentPage(driver));
-    }
-
     @Step("Check comment check-box in table")
     public BCommentTable checkExistingComment(int numberComment) {
         this.driver.findElements(By.name("SelectedId")).get(numberComment).click();

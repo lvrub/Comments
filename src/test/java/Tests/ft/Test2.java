@@ -6,7 +6,6 @@ import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
 import io.qameta.allure.*;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 public class Test2 extends BaseTestCase {
@@ -23,15 +22,23 @@ public class Test2 extends BaseTestCase {
     @Feature("Duplication of a comment")
 
     public void test2() {
-        commentPage.open();
-        commentTable.checkExistingComment(0);
-        commentPage.clickDuplicate();
-        MatcherAssert.assertThat(commentWindow.commentText(), Matchers.is("Copy of Comment Text 0"));
-        MatcherAssert.assertThat(commentWindow.commentNumber(), Matchers.is("0"));
-        MatcherAssert.assertThat(commentWindow.selectedCategory(), Matchers.is("Cat0"));
-        commentWindow.fillCommentNumber("77");
-        commentWindow.saveCommentReturnInTable();
-        commentPage.navigateToLastPage();
+        commentPage.
+                open()
+                .returnPage(commentTable)
+                .checkExistingComment(0)
+                .returnPage(commentPage)
+                .clickDuplicate()
+                .returnPage(commentWindow)
+                .verifyCommentText("Copy of Comment Text 0")
+                .verifyCommentNumber("0")
+                .verifyCommentCategory("Cat0")
+//        MatcherAssert.assertThat(commentWindow.commentText(), Matchers.is("Copy of Comment Text 0"));
+//        MatcherAssert.assertThat(commentWindow.commentNumber(), Matchers.is("0"));
+//        MatcherAssert.assertThat(commentWindow.selectedCategory(), Matchers.is("Cat0"));
+                .fillCommentNumber("77")
+                .saveCommentReturnInTable()
+                .returnPage(commentPage)
+                .navigateToLastPage();
         MatcherAssert.assertThat("Text is correct", commentTable.isNewCommentTextCorrect("Copy of Comment Text 0"));
         MatcherAssert.assertThat("Number is correct", commentTable.isNewCommentNumberCorrect("77"));
         MatcherAssert.assertThat("Category is correct", commentTable.isNewCommentCategoryCorrect("Cat0"));
