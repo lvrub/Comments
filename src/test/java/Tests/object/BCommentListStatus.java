@@ -15,9 +15,10 @@ public class BCommentListStatus {
     }
 
     @Step("Select status for table filtration")
-    public void selectStatus(String status) {
+    public BCommentListStatus selectStatus(String status) {
         new Select(this.driver.findElement(By.id("SelectedStatus"))).selectByVisibleText(status);
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return this;
     }
 
     @Step("Select category for table filtration")
@@ -26,7 +27,8 @@ public class BCommentListStatus {
     }
 
     @Step("Apply selected status for table filtration")
-    public void clickApplyStatus() {
+    public BCommentListStatus clickApplyStatus() {
         this.driver.findElements(By.id("applybutton")).get(0).click();
+        return this;
     }
 }

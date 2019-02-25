@@ -22,16 +22,18 @@ public class Test8 extends BaseTestCase {
     @Epic("Regression Suit")
     @Feature("Comment Inactivation")
     public void test8() {
-        commentPage.open();
-        commentTable.checkExistingComment(0); // numeration list starts from "0"
-        commentListActions.selectAction("Inactivate");
+        commentPage.open()
+                .returnPage(commentTable)
+                .checkExistingComment(0) // numeration list starts from "0"
+                .returnPage(commentListActions)
+                .selectAction("Inactivate");
         MatcherAssert.assertThat("Comment is inactive", commentTable.isCommentInactive("V"));
-        commentListStatus.selectStatus("Inactive");
-        commentListStatus.clickApplyStatus();
+        commentListStatus.selectStatus("Inactive")
+                .clickApplyStatus();
         final String page = this.driver.getPageSource();
         MatcherAssert.assertThat("Comment Text 0 is not present", page.contains("Comment Text 0"));
-        commentListStatus.selectStatus("Active");
-        commentListStatus.clickApplyStatus();
+        commentListStatus.selectStatus("Active")
+                .clickApplyStatus();
         final String page1 = this.driver.getPageSource();
         MatcherAssert.assertThat("Comment Text 0 is present", !page1.contains("Comment Text 0"));
     }
