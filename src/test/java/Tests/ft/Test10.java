@@ -18,16 +18,17 @@ public class Test10 extends BaseTestCase {
     @Description("This test checks table filtration of comments which contains required category")
     @Epic("Regression Suit")
     @Feature("Check category filtration")
+
     public void test10() {
         commentPage.open();
         commentListStatus.selectCategoty("Cat4");
         commentListStatus.clickApplyStatus();
         MatcherAssert.assertThat("Categories contains needed category", commentTable.verifyCategories("Cat4"));
-        MatcherAssert.assertThat("Comment Text 9 is present", commentTable.isNewCommentTextCorrect("Comment Text 10"));
-        MatcherAssert.assertThat("Comment Text 14 is present", commentTable.isNewCommentTextCorrect("Comment Text 14"));
-        MatcherAssert.assertThat("Comment Text 19 is present", commentTable.isNewCommentTextCorrect("Comment Text 19"));
-        MatcherAssert.assertThat("Comment Text 24 is present", commentTable.isNewCommentTextCorrect("Comment Text 24"));
-        MatcherAssert.assertThat("Comment Text 19 is present", commentTable.isNewCommentTextCorrect("Comment Text 29"));
+        commentTable.isNewCommentTextCorrect("Comment Text 10");
+        commentTable.isNewCommentTextCorrect("Comment Text 14");
+        commentTable.isNewCommentTextCorrect("Comment Text 19");
+        commentTable.isNewCommentTextCorrect("Comment Text 24");
+        commentTable.isNewCommentTextCorrect("Comment Text 29");
         commentListStatus.selectCategoty("Cat5");
         commentListStatus.clickApplyStatus();
         final String page1 = driver.getPageSource();

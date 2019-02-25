@@ -16,11 +16,12 @@ public class BCommentWindow extends BasePages {
     }
 
     @Step("Fill name for comment")
-    public void fillCommentTextField(String commentText) {
+    public BCommentWindow fillCommentTextField(String commentText) {
         this.driver.findElement(By.id("Text")).clear();
         this.driver.findElement(By.id("Text")).sendKeys(commentText);
         this.driver.findElement(By.id("Number")).click(); //in order to change fous from the field
         this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        return this;
     }
 
     @Step("Fill number for comment")
@@ -47,9 +48,10 @@ public class BCommentWindow extends BasePages {
     }
 
     @Step("Add category for comment")
-    public void addCategory() {
+    public BCommentWindow addCategory() {
         this.driver.findElement(By.xpath("//*[@id='categoryselector']//div[1]/input[1]")).click();
         this.driver.findElement(By.name("CurSelect")).click();
+        return this;
     }
 
     @Step("Check name length for new comment")

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentListStatus {
+public class BCommentListStatus extends BasePages {
     public final WebDriver driver;
 
     public BCommentListStatus(WebDriver driver) {

@@ -5,8 +5,6 @@ import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
 import io.qameta.allure.*;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,18 +19,20 @@ public class Test18 extends BaseTestCase {
     @Description("This test checks saving of comment with valid name")
     @Epic("Regression Suit")
     @Feature("Comment name")
+
     public void test18(String name) {
-        commentPage.open();
-        commentPage.clickNewComment();
-        commentWindow.fillCommentTextField(name);
-        commentWindow.addCategory();
-        commentWindow.fillCommentNumber("111");
-        commentWindow.saveCommentReturnInTable();
-        commentPage.navigateToLastPage();
-
-        MatcherAssert.assertThat(commentTable.verifyCommentId(""), Matchers.is("111"));
-//        MatcherAssert.assertThat(name + " is present", commentTable.isNewCommentTextCorrect(name));
-
+        commentPage.open()
+                .clickNewComment()
+                .returnPage(commentWindow)
+                .fillCommentTextField(name)
+                .fillCommentNumber("111")
+                .addCategory()
+                .saveCommentReturnInTable()
+                .returnPage(commentPage)
+                .navigateToLastPage()
+                .returnPage(commentTable)
+                .verifyCommentId("111")
+                .isNewCommentTextCorrect(name);
     }
 
     @DataProvider

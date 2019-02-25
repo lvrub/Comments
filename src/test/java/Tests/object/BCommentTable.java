@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import java.util.List;
-
 public class BCommentTable extends BasePages {
     private final WebDriver driver;
 
@@ -40,12 +38,13 @@ public class BCommentTable extends BasePages {
     }
 
     @Step("Verify comment name in table")
-    public boolean isNewCommentTextCorrect(String name) {
+    public BCommentTable isNewCommentTextCorrect(String name) {
         try {
-            this.driver.findElement(By.xpath(String.format("//*[@class='textcolumn'][contains(text(),\"%s\")]", name)));
-            return true;
+            String commentsName = this.driver.findElement(By.xpath(String.format("//*[@class='textcolumn'][contains(text(),\"%s\")]", name))).getText();
+            Assert.assertEquals(name, commentsName);
+            return this;
         } catch (NoSuchElementException e) {
-            return false;
+            return this;
         }
     }
 
@@ -98,12 +97,11 @@ public class BCommentTable extends BasePages {
     }
 
     @Step("Verify correct comments ID")
-    public String verifyCommentId(String id) {
-        List<WebElement> row = this.driver.findElements(By.xpath("//*[@class='numbercolumn']"));
-        for (WebElement e : row) {
-            id = row.get(row.size() - 1).getText();
-        }
-        return id;
+    public BCommentTable verifyCommentId(String id) {
+        String commentID = this.driver.findElement(By.xpath("//*[@class='numbercolumn']")).getText();
+        Assert.assertEquals(id, commentID);
+        return this;
+
     }
 
 
