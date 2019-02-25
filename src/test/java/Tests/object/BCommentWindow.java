@@ -32,8 +32,9 @@ public class BCommentWindow extends BasePages {
     }
 
     @Step("Save a comment")
-    public void saveComment() {
+    public BCommentWindow saveComment() {
         this.driver.findElement(By.xpath("//*[@id=\"editor-navigation\"]/input[1]")).click();
+        return this;
     }
 
     @Step("Navigate to table")
@@ -42,9 +43,11 @@ public class BCommentWindow extends BasePages {
         return this;
     }
 
-    @Step("Show error message")
-    public String showErrorMessage() {
-        return this.driver.findElement(By.id("errorfield")).getText();
+    @Step("Verify error message")
+    public BCommentWindow verifyErrorMessage(String errorMessage) {
+        String message = this.driver.findElement(By.id("errorfield")).getText();
+        Assert.assertEquals(errorMessage, message);
+        return this;
     }
 
     @Step("Add category for comment")

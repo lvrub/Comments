@@ -4,7 +4,6 @@ import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentWindow;
 import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 public class Test32 extends BaseTestCase {
@@ -22,7 +21,7 @@ public class Test32 extends BaseTestCase {
         commentWindow.fillCommentTextField("New CommentText 1000");
         commentWindow.fillCommentNumber("1001");
         commentWindow.saveComment();
-        MatcherAssert.assertThat(commentWindow.showErrorMessage(), Matchers.is("The Number field should contain value from 0 to 999"));
+        commentWindow.verifyErrorMessage("The Number field should contain value from 0 to 999");
     }
 
 }

@@ -4,8 +4,6 @@ import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentWindow;
 import io.qameta.allure.*;
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.Matchers;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -21,12 +19,13 @@ public class Test22 extends BaseTestCase {
     @Feature("Comment name validation")
 
     public void test(String text, String errorMessage) {
-        commentPage.open();
-        commentPage.clickNewComment();
-        commentWindow.fillCommentTextField(text);
-        commentWindow.addCategory();
-        commentWindow.saveComment();
-        MatcherAssert.assertThat(commentWindow.showErrorMessage(), Matchers.is(errorMessage));
+        commentPage.open()
+                .clickNewComment()
+                .returnPage(commentWindow)
+                .fillCommentTextField(text)
+                .addCategory()
+                .saveComment()
+                .verifyErrorMessage(errorMessage);
     }
 
     @DataProvider
