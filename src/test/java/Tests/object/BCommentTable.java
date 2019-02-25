@@ -38,10 +38,10 @@ public class BCommentTable extends BasePages {
     }
 
     @Step("Verify comment name in table")
-    public BCommentTable isNewCommentTextCorrect(String name) {
+    public BCommentTable verifyCommentText(String actualName, String expectedName) {
         try {
-            String commentsName = this.driver.findElement(By.xpath(String.format("//*[@class='textcolumn'][contains(text(),\"%s\")]", name))).getText();
-            Assert.assertEquals(name, commentsName);
+            String commentsName = this.driver.findElement(By.xpath(String.format("//*[@class='textcolumn'][contains(text(),\"%s\")]", actualName))).getText();
+            Assert.assertEquals(commentsName, expectedName);
             return this;
         } catch (NoSuchElementException e) {
             return this;

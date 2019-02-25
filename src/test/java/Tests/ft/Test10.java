@@ -24,11 +24,11 @@ public class Test10 extends BaseTestCase {
         commentListStatus.selectCategoty("Cat4");
         commentListStatus.clickApplyStatus();
         MatcherAssert.assertThat("Categories contains needed category", commentTable.verifyCategories("Cat4"));
-        commentTable.isNewCommentTextCorrect("Comment Text 10");
-        commentTable.isNewCommentTextCorrect("Comment Text 14");
-        commentTable.isNewCommentTextCorrect("Comment Text 19");
-        commentTable.isNewCommentTextCorrect("Comment Text 24");
-        commentTable.isNewCommentTextCorrect("Comment Text 29");
+        commentTable.verifyCommentText("Comment Text 10", "Comment Text 10");
+        commentTable.verifyCommentText("Comment Text 14", "Comment Text 14");
+        commentTable.verifyCommentText("Comment Text 19", "Comment Text 19");
+        commentTable.verifyCommentText("Comment Text 24", "Comment Text 24");
+        commentTable.verifyCommentText("Comment Text 29", "Comment Text 29");
         commentListStatus.selectCategoty("Cat5");
         commentListStatus.clickApplyStatus();
         final String page1 = driver.getPageSource();

@@ -32,7 +32,7 @@ public class Test18 extends BaseTestCase {
                 .navigateToLastPage()
                 .returnPage(commentTable)
                 .verifyCommentId("111")
-                .isNewCommentTextCorrect(name);
+                .verifyCommentText(name, name);
     }
 
     @DataProvider
