@@ -7,20 +7,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import java.util.List;
-
-public class BCommentTable implements CommentTable {
+public class BCommentTable extends BasePages {
     private final WebDriver driver;
 
     public BCommentTable(WebDriver webDriver) {
         this.driver = webDriver;
     }
 
-    BCommentTable bCommentTable;
-
     @Step("Check comment check-box in table")
-    public void checkExistingComment(int numberComment) {
+    public BCommentTable checkExistingComment(int numberComment) {
         this.driver.findElements(By.name("SelectedId")).get(numberComment).click();
+        return this;
     }
 
     @Step("Check inactivate comment status in table")
@@ -29,32 +26,48 @@ public class BCommentTable implements CommentTable {
     }
 
     @Step("Verify comment number in table")
-    public boolean isNewCommentNumberCorrect(String number) {
+    public BCommentTable isNewCommentNumberCorrect(String actualNumber, String expectedNumber) {
         try {
-            this.driver.findElement(By.xpath(String.format("//td[@class='numbercolumn'and contains(text(),'%s')]", number))).getText();
-            return true;
+            String number = this.driver.findElement(By.xpath(String.format("//td[@class='numbercolumn'and contains(text(),'%s')]", actualNumber))).getText();
+            Assert.assertFalse(number == null);
+            Assert.assertEquals(number, expectedNumber, "Numbers are not equal:");
+            return this;
         } catch (NoSuchElementException e) {
-            return false;
+            return this;
         }
     }
 
     @Step("Verify comment name in table")
-    public boolean isNewCommentTextCorrect(String name) {
+    public BCommentTable verifyCommentText(String actualName, String expectedName) {
         try {
-            this.driver.findElement(By.xpath(String.format("//*[@class='textcolumn'][contains(text(),\"%s\")]", name)));
-            return true;
+            String commentsName = this.driver.findElement(By.xpath(String.format("//*[@class='textcolumn'][contains(text(),\"%s\")]", actualName))).getText();
+            Assert.assertEquals(commentsName, expectedName);
+            return this;
         } catch (NoSuchElementException e) {
-            return false;
+            return this;
         }
     }
 
-    @Step("Verify comment category in table")
-    public boolean isNewCommentCategoryCorrect(String category) {
+    @Step("Verify comment name in table")
+    public BCommentTable verifyCommentTextCorrect(String commentName) {
         try {
-            String s = this.driver.findElement(By.xpath(String.format("//*[@class='categorycolumn' and contains(text(), '%s')]", category))).getText();
-            return true;
+            String commentTextTable = this.driver.findElement(By.xpath("//td[@class='textcolumn']")).getText();
+            Assert.assertEquals(commentName, commentTextTable);
+            return this;
         } catch (NoSuchElementException e) {
-            return false;
+            return this;
+        }
+    }
+
+
+    @Step("Verify comment category in table")
+    public BCommentTable isNewCommentCategoryCorrect(String actualCategory, String expectedCategory) {
+        try {
+            String category = this.driver.findElement(By.xpath(String.format("//*[@class='categorycolumn' and contains(text(), '%s')]", actualCategory))).getText();
+            Assert.assertEquals(category, expectedCategory);
+            return this;
+        } catch (NoSuchElementException e) {
+            return this;
         }
     }
 
@@ -84,59 +97,13 @@ public class BCommentTable implements CommentTable {
     }
 
     @Step("Verify correct comments ID")
-    public String verifyCommentId(String id) {
-        List<WebElement> row = this.driver.findElements(By.xpath("//*[@class='numbercolumn']"));
-        for (WebElement e : row) {
-            id = row.get(row.size() - 1).getText();
-        }
-        return id;
+    public BCommentTable verifyCommentId(String id) {
+        String commentID = this.driver.findElement(By.xpath("//*[@class='numbercolumn']")).getText();
+        Assert.assertEquals(id, commentID);
+        return this;
+
     }
 
-    @Step("Verify correct name for Deleting popup")
-    public boolean verifyDeletingWindowName() {
-        this.driver.findElement(By.xpath("//*[@value='Delete']")).click();
-        String deleteWindowName = driver.findElement(By.id("ui-dialog-title-dialog")).getText();
-        Assert.assertEquals("Comments Application", deleteWindowName);
-        return true;
-    }
 
-    @Step("Verify deleting of comment")
-    public boolean verifyDeletingComment() {
-        this.driver.findElement(By.xpath("//*[@value=\'Delete\']")).click();
-        this.driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
-        String existComment = driver.findElement(By.xpath("//td[contains(text(),'Comment Text')][1]")).getText();
-        Assert.assertEquals(existComment, "Comment Text 1");
-        return true;
-    }
-
-    @Step("Verify closing of Delete popup")
-    public boolean verifyDeletingCommentWindowClosed() {
-        String window = this.driver.findElement(By.xpath("//*[contains(@class,'ui-draggable')]")).getText();
-        Assert.assertFalse(false, window);
-        return true;
-    }
-
-    public boolean verifyCancelDeleteComment() {
-        this.driver.findElement(By.xpath("//span[contains(text(),'No')]")).click();
-        String existComment = driver.findElement(By.xpath("//td[contains(text(),'Comment Text')][1]")).getText();
-        Assert.assertEquals("Comment Text 0", existComment);
-        return true;
-    }
-
-    public boolean verifyDeletingWindowMessage() {
-        String deleteWindowMessage = driver.findElement(By.xpath("//p[@id='msgText']")).getText();
-        Assert.assertEquals("Delete?", deleteWindowMessage);
-        return true;
-    }
-
-    public boolean verifyDeletingNotification() {
-        try {
-            String deleteMessage = driver.findElement(By.xpath("//div[@id='infoField']")).getText();
-            Assert.assertEquals(deleteMessage, "Selected comments deleted successfull");
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentListStatus implements CommentListStatus {
+public class BCommentListStatus extends BasePages {
     public final WebDriver driver;
 
     public BCommentListStatus(WebDriver driver) {
@@ -15,9 +15,10 @@ public class BCommentListStatus implements CommentListStatus {
     }
 
     @Step("Select status for table filtration")
-    public void selectStatus(String status) {
+    public BCommentListStatus selectStatus(String status) {
         new Select(this.driver.findElement(By.id("SelectedStatus"))).selectByVisibleText(status);
         this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return this;
     }
 
     @Step("Select category for table filtration")
@@ -26,7 +27,8 @@ public class BCommentListStatus implements CommentListStatus {
     }
 
     @Step("Apply selected status for table filtration")
-    public void clickApplyStatus() {
+    public BCommentListStatus clickApplyStatus() {
         this.driver.findElements(By.id("applybutton")).get(0).click();
+        return this;
     }
 }

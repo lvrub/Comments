@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
-public class BCommentListActions implements CommentListActions {
+public class BCommentListActions extends BasePages {
     private final WebDriver driver;
 
     public BCommentListActions(WebDriver driver) {
@@ -15,9 +15,10 @@ public class BCommentListActions implements CommentListActions {
     }
 
     @Step("Select status for comment in table")
-    public void selectAction(String action) {
+    public BCommentListActions selectAction(String action) {
         new Select(this.driver.findElement(By.id("commandSelect"))).selectByVisibleText(action);
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return this;
     }
 
 }
