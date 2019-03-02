@@ -1,8 +1,5 @@
 package JavaExamples.Patterns.Strategy;
 
-interface Strategy {
-    double getPrice(double price);
-}
 
 public class StrategyLesson {
     public static void main(String[] args) {
@@ -17,6 +14,10 @@ public class StrategyLesson {
         System.out.println(price_1);
         System.out.println(price_2);
     }
+}
+
+interface Strategy {
+    double getPrice(double price);
 }
 
 class FullPrice implements Strategy {
@@ -39,7 +40,6 @@ class ContextStrategy {
     public ContextStrategy(Strategy strategy) {
         this.strategy = strategy;
     }
-
     public double getPrice(double price) {
         return strategy.getPrice(price);
     }
