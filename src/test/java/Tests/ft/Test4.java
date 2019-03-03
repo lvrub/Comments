@@ -19,6 +19,8 @@ public class Test4 extends BaseTestCase {
     public void test4() {
 
         commentPage.open()
+                .verifyAlertMessageForDeleting()
+                .closeAlertForDeleting()
                 .returnPage(commentTable)
                 .checkExistingComment(0)
                 .returnPage(commentPage)

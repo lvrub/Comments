@@ -63,6 +63,20 @@ public class BCommentPage extends BasePages {
         return this;
     }
 
+    @Step("Verify alert message for deleting of comment")
+    public BCommentPage verifyAlertMessageForDeleting() {
+        this.driver.findElement(By.xpath("//*[@value=\'Delete\']")).click();
+        String existComment = driver.switchTo().alert().getText();
+        Assert.assertEquals(existComment, "Please, select one category");
+        return this;
+    }
+
+    @Step("Close deleting alert")
+    public BCommentPage closeAlertForDeleting() {
+        driver.switchTo().alert().accept();
+        return this;
+    }
+
     @Step("Verify closing of Delete popup")
     public BCommentPage verifyDeletingCommentWindowClosed() {
         String window = this.driver.findElement(By.xpath("//*[contains(@class,'ui-draggable')]")).getText();
