@@ -35,12 +35,6 @@ public class Draft {
         String actual = driver.findElement(By.xpath("//h3")).getText().toString();
         Assert.assertEquals(actual, string, String.format("Not real data '%s'", actual));
         return this;
-
-//        FillOpeningsContext verifyReasonInFillOpeningIsCorrect(String patientFullName, String reason) {
-//            String actual = this.fillOpeningsPage.getPanelReasonFOP(patientFullName).getControlValue().toString()
-//            Assert.assertEquals(reason, actual, String.format("Expected reason in Fill Opening is '%s', but actual '%s'", reason, actual))
-//            return this.instance(FillOpeningsContext)
-//        }
     }
 
 }
