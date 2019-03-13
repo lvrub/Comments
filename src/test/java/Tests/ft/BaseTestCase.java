@@ -1,4 +1,4 @@
-package Tests;
+package Tests.ft;
 
 import net.commments.sample.selenium.CommentsDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

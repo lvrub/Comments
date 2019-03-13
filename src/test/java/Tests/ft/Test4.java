@@ -1,6 +1,5 @@
 package Tests.ft;
 
-import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import io.qameta.allure.*;
@@ -23,6 +22,9 @@ public class Test4 extends BaseTestCase {
                 .closeAlertForDeleting()
                 .returnPage(commentTable)
                 .checkExistingComment(0)
+                .verifyHeaderClickable("Comment Text")
+                .verifyHeaderClickable("Number")
+                .verifyHeaderClickable("Inactive")
                 .returnPage(commentPage)
                 .verifyDeletingWindowName()
                 .verifyDeletingWindowMessage()

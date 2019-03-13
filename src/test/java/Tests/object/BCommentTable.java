@@ -104,6 +104,13 @@ public class BCommentTable extends BasePages {
 
     }
 
+    @Step("Verify active header")
+    public BCommentTable verifyHeaderClickable(String header) {
+        WebElement link = driver.findElement(By.linkText(header));
+        Assert.assertTrue(link.isEnabled());
+        return this;
+    }
+
 
 
 }

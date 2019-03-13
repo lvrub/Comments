@@ -11,7 +11,7 @@ public class GetFileInfo {
             System.out.println("Writeable: " + myObj.canWrite());
             System.out.println("Readable " + myObj.canRead());
             System.out.println("File size in bytes " + myObj.length());
-            System.out.println("File is deleted " + myObj.delete());
+//            System.out.println("File is deleted " + myObj.delete());
             System.out.println("Is really exist " + myObj.exists());
         } else {
             System.out.println("The file does not exist.");

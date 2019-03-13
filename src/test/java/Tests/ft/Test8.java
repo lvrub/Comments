@@ -1,6 +1,5 @@
 package Tests.ft;
 
-import Tests.BaseTestCase;
 import Tests.object.BCommentListActions;
 import Tests.object.BCommentListStatus;
 import Tests.object.BCommentPage;

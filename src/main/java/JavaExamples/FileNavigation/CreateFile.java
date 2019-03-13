@@ -7,6 +7,8 @@ public class CreateFile {
     public static void main(String[] args) {
         try {
             File myObj = new File("E:/filename.txt");
+            File file = new File("E:/filename1.txt");
+            file.createNewFile();
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             } else {

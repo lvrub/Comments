@@ -1,6 +1,5 @@
 package Tests.ft;
 
-import Tests.BaseTestCase;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
