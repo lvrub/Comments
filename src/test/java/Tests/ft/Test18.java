@@ -3,6 +3,7 @@ package Tests.ft;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
+import Tests.selenium.BaseTestCase;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

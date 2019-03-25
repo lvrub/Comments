@@ -3,6 +3,7 @@ package Tests.ft;
 import Tests.object.BCommentListStatus;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
+import Tests.selenium.BaseTestCase;
 import io.qameta.allure.*;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;

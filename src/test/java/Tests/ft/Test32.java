@@ -2,6 +2,7 @@ package Tests.ft;
 
 import Tests.object.BCommentPage;
 import Tests.object.BCommentWindow;
+import Tests.selenium.BaseTestCase;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
