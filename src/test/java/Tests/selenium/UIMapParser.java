@@ -12,7 +12,7 @@ public class UIMapParser {
 
     public UIMapParser(String fileName) throws IOException {
         this.RepositoryFile = fileName;
-        stream = new FileInputStream("C:\\Automation\\src\\test\\java\\Tests\\selenium\\UIMap.properties");
+        stream = new FileInputStream(fileName);
         propertyFile.load(stream);
     }
 
@@ -20,7 +20,7 @@ public class UIMapParser {
         String locatorProperty = propertyFile.getProperty(locatorName);
         System.out.println(locatorProperty.toString());
 //            String locatorType = locatorProperty.split(":")[0];
-        String locatorValue = locatorProperty.split(":")[0];
+        //String locatorValue = locatorProperty.split(":")[1];
 
 //            By locator = null;
 //            switch(locatorType)
@@ -48,7 +48,7 @@ public class UIMapParser {
 //                    break;
 //            }
 //            return locator;
-        return locatorValue;
+        return locatorProperty;
     }
 }
 

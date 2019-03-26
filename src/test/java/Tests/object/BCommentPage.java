@@ -1,6 +1,5 @@
 package Tests.object;
 
-import Tests.selenium.UIMapParser;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -18,7 +17,7 @@ public class BCommentPage extends BasePages {
 //        this.driver = webDriver;
 //        this.bCommentTable = bCommentTable;
 //    }
-private UIMapParser parser = new UIMapParser("C:\\Automation\\src\\test\\java\\Tests\\selenium\\UIMap.properties");
+//private UIMapParser parser = new UIMapParser("C:\\Automation\\src\\test\\java\\Tests\\selenium\\UIMap.properties");
 
     public BCommentPage(WebDriver webDriver) throws IOException {
         this.driver = webDriver;
@@ -33,7 +32,7 @@ private UIMapParser parser = new UIMapParser("C:\\Automation\\src\\test\\java\\T
 
     @Step("Open window for new comments ")
     public BCommentPage clickNewComment() {
-        this.driver.findElement(By.id("newbutton")).click();
+        this.driver.findElement(By.id(parser.getOjectLocator("NewCommentsButton"))).click();
         this.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         return this;
     }
@@ -60,7 +59,7 @@ private UIMapParser parser = new UIMapParser("C:\\Automation\\src\\test\\java\\T
 
     @Step("Verify deleting of comment")
     public BCommentPage verifyDeletingComment() {
-        this.driver.findElement(By.xpath(String.valueOf(parser.getOjectLocator("Name")))).click();
+        this.driver.findElement(By.xpath(parser.getOjectLocator("DeleteButton"))).click();
         this.driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
         String existComment = driver.findElement(By.xpath("//td[contains(text(),'Comment Text')][1]")).getText();
         Assert.assertEquals(existComment, "Comment Text 1");
