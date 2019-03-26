@@ -13,7 +13,8 @@ public class Contact {
         this.mail = contactBuilder.getMail();
         this.phone = contactBuilder.getPhone();
         this.address = contactBuilder.getAddress();
-        System.out.println(contactBuilder.getName());
+        System.out.println(name + " " + surname);
+
     }
 
 }

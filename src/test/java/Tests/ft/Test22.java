@@ -7,10 +7,15 @@ import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Test22 extends BaseTestCase {
 
     private final BCommentPage commentPage = new BCommentPage(this.driver);
     private final BCommentWindow commentWindow = new BCommentWindow(this.driver);
+
+    public Test22() throws IOException {
+    }
 
     @Test(dataProvider = "Data1", description = "Comment saving with special characters", enabled = true)
     @Severity(SeverityLevel.MINOR)

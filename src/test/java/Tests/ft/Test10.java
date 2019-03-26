@@ -8,10 +8,15 @@ import io.qameta.allure.*;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Test10 extends BaseTestCase {
     private final BCommentListStatus commentListStatus = new BCommentListStatus(this.driver);
     private final BCommentPage commentPage = new BCommentPage(this.driver);
     private final BCommentTable commentTable = new BCommentTable(this.driver);
+
+    public Test10() throws IOException {
+    }
 
     @Test(description = "Filtration of comments with special category")
     @Severity(SeverityLevel.NORMAL)

@@ -6,10 +6,15 @@ import Tests.selenium.BaseTestCase;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Test4 extends BaseTestCase {
 
     BCommentTable commentTable = new BCommentTable(driver);
     BCommentPage commentPage = new BCommentPage(driver);
+
+    public Test4() throws IOException {
+    }
 
     @Test(description = "Deleting of a comments")
     @Description("This test verifies deleting a comments from table")

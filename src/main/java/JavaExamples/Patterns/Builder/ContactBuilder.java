@@ -12,21 +12,18 @@ public class ContactBuilder {
         return this;
     }
 
-    public ContactBuilder surname(final String surname) {
+    public ContactBuilder surname(String surname) {
         this.surname = surname;
         return this;
     }
-
     public ContactBuilder mail(final String mail) {
         this.mail = mail;
         return this;
     }
-
     public ContactBuilder phone(final String phone) {
         this.phone = phone;
         return this;
     }
-
     public ContactBuilder address(final String address) {
         this.address = address;
         return this;
@@ -35,24 +32,20 @@ public class ContactBuilder {
     public String getName() {
         return name;
     }
-
     public String getSurname() {
         return surname;
     }
-
     public String getMail() {
         return mail;
     }
-
     public String getPhone() {
         return phone;
     }
-
     public String getAddress() {
         return address;
     }
-
     public Contact build() {
         return new Contact(this);
     }
+
 }

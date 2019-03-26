@@ -9,12 +9,17 @@ import io.qameta.allure.*;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Test8 extends BaseTestCase {
 
     private final BCommentTable commentTable = new BCommentTable(this.driver);
     private final BCommentPage commentPage = new BCommentPage(this.driver /*,commentTable*/);
     private final BCommentListActions commentListActions = new BCommentListActions(this.driver);
     private final BCommentListStatus commentListStatus = new BCommentListStatus(this.driver);
+
+    public Test8() throws IOException {
+    }
 
     @Test(description = "Inactivation of selected comment")
     @Description("This test verifies inactivating of comments from table")

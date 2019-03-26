@@ -1,25 +1,29 @@
 package Tests.object;
 
+import Tests.selenium.UIMapParser;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class BCommentPage extends BasePages {
     private WebDriver driver;
     private BCommentTable bCommentTable;
 
-    public BCommentPage(WebDriver webDriver) {
-        this.driver = webDriver;
-    }
-
 //    public BCommentPage(WebDriver webDriver, BCommentTable bCommentTable) {
 //        this.driver = webDriver;
 //        this.bCommentTable = bCommentTable;
 //    }
+private UIMapParser parser = new UIMapParser("C:\\Automation\\src\\test\\java\\Tests\\selenium\\UIMap.properties");
+
+    public BCommentPage(WebDriver webDriver) throws IOException {
+        this.driver = webDriver;
+    }
+
 
     @Step("Open comments site")
     public BCommentPage open() {
@@ -56,7 +60,7 @@ public class BCommentPage extends BasePages {
 
     @Step("Verify deleting of comment")
     public BCommentPage verifyDeletingComment() {
-        this.driver.findElement(By.xpath("//*[@value=\'Delete\']")).click();
+        this.driver.findElement(By.xpath(String.valueOf(parser.getOjectLocator("Name")))).click();
         this.driver.findElement(By.xpath("//span[contains(text(),'Yes')]")).click();
         String existComment = driver.findElement(By.xpath("//td[contains(text(),'Comment Text')][1]")).getText();
         Assert.assertEquals(existComment, "Comment Text 1");

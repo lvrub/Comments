@@ -9,6 +9,11 @@ public class Main {
                 .phone("123-765-766")
                 .mail("khbjhg@jlk.ii")
                 .build();
+
+        final Contact contact1 = new ContactBuilder()
+                .name("Olha")
+//                .surname("")
+                .build();
     }
 
 }

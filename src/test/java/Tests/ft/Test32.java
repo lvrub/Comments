@@ -6,10 +6,15 @@ import Tests.selenium.BaseTestCase;
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Test32 extends BaseTestCase {
 
     private final BCommentWindow commentWindow = new BCommentWindow(this.driver);
     private final BCommentPage commentPage = new BCommentPage(this.driver);
+
+    public Test32() throws IOException {
+    }
 
     @Test(description = "Length validation for name and number strings", enabled = true, groups = "Group1")
 

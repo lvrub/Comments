@@ -8,11 +8,16 @@ import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class Test18 extends BaseTestCase {
 
     public final BCommentPage commentPage = new BCommentPage(this.driver);
     public final BCommentWindow commentWindow = new BCommentWindow(this.driver);
     public final BCommentTable commentTable = new BCommentTable(this.driver);
+
+    public Test18() throws IOException {
+    }
 
     @Test(dataProvider = "Name", description = "Comments saving with different valid name")
     @Severity(SeverityLevel.CRITICAL)
