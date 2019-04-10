@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BCommentPage extends BasePages {
     private WebDriver driver;
-    private BCommentTable bCommentTable;
+//    private BCommentTable bCommentTable;
 
 //    public BCommentPage(WebDriver webDriver, BCommentTable bCommentTable) {
 //        this.driver = webDriver;

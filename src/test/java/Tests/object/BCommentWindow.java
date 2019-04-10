@@ -6,12 +6,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class BCommentWindow extends BasePages {
     private final WebDriver driver;
 
-    public BCommentWindow(WebDriver webDriver) {
+    public BCommentWindow(WebDriver webDriver) throws IOException {
         this.driver = webDriver;
     }
 

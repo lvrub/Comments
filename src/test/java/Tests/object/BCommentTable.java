@@ -7,10 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import java.io.IOException;
+
 public class BCommentTable extends BasePages {
     private final WebDriver driver;
 
-    public BCommentTable(WebDriver webDriver) {
+    public BCommentTable(WebDriver webDriver) throws IOException {
         this.driver = webDriver;
     }
 

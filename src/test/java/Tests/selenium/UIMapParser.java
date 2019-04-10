@@ -7,11 +7,11 @@ import java.util.Properties;
 public class UIMapParser {
 
     private FileInputStream stream;
-    private String RepositoryFile;
+    //private String RepositoryFile;
     private Properties propertyFile = new Properties();
 
     public UIMapParser(String fileName) throws IOException {
-        this.RepositoryFile = fileName;
+        //  this.RepositoryFile = fileName;
         stream = new FileInputStream(fileName);
         propertyFile.load(stream);
     }
