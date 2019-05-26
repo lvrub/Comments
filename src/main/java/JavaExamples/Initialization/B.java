@@ -2,7 +2,7 @@ package JavaExamples.Initialization;
 
 public class B extends A {
     static {
-        System.out.println("B class. Static block 1");
+        System.out.println("B class.Child Static block 1");
     }
 
     private int b = bb(20);
@@ -12,11 +12,11 @@ public class B extends A {
     }
 
     public B() {
-        System.out.println("B class. Constructor");
+        System.out.println("B class.Child Constructor");
     }
 
     private int bb(int x) {
-        System.out.println("B class. No static perem " + x);
+        System.out.println("B class.Child No static perem " + x);
         return 0;
     }
 
