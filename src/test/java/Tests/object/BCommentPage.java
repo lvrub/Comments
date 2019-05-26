@@ -39,7 +39,7 @@ public class BCommentPage extends BasePages {
 
     @Step("Go to last table page")
     public BCommentPage navigateToLastPage() {
-        this.driver.findElement(By.xpath("//a[contains(@href,\"page\")][last()-1]")).click();
+        this.driver.findElement(By.xpath(parser.getOjectLocator("LastPage"))).click();
         return this;
     }
 
