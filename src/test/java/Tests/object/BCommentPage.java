@@ -51,7 +51,7 @@ public class BCommentPage extends BasePages {
 
     @Step("Verify correct name for Deleting popup")
     public BCommentPage verifyDeletingWindowName() {
-        this.driver.findElement(By.xpath("//*[@value='Delete']")).click();
+        this.driver.findElement(By.xpath(parser.getOjectLocator("DeleteButton"))).click();
         String deleteWindowName = driver.findElement(By.id("ui-dialog-title-dialog")).getText();
         Assert.assertEquals("Comments Application", deleteWindowName);
         return this;

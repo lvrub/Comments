@@ -9,11 +9,13 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+
 public class Test2 extends BaseTestCase {
 
     protected final BCommentPage commentPage = new BCommentPage(driver);
     protected final BCommentTable commentTable = new BCommentTable(driver);
     protected final BCommentWindow commentWindow = new BCommentWindow(driver);
+
 
     public Test2() throws IOException {
     }

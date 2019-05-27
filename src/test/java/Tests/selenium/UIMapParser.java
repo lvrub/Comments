@@ -18,7 +18,7 @@ public class UIMapParser {
 
     public String getOjectLocator(String locatorName) {
         String locatorProperty = propertyFile.getProperty(locatorName);
-        System.out.println(locatorProperty.toString());
+//        System.out.println(locatorProperty.toString());
 //            String locatorType = locatorProperty.split(":")[0];
         //String locatorValue = locatorProperty.split(":")[1];
 

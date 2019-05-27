@@ -5,12 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class BCommentListActions extends BasePages {
     private final WebDriver driver;
 
-    public BCommentListActions(WebDriver driver) {
+    public BCommentListActions(WebDriver driver) throws IOException {
         this.driver = driver;
     }
 
