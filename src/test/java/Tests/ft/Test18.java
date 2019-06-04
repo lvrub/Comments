@@ -6,12 +6,11 @@ import Tests.object.BCommentWindow;
 import Tests.selenium.BaseTestCase;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-@Listeners(Tests.selenium.Listeners.class)
+//@Listeners(Tests.selenium.Listeners.class)
 
 
 public class Test18 extends BaseTestCase {
