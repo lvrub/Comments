@@ -10,7 +10,8 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-@Listeners(Tests.selenium.Listeners.class)
+@Listeners({Tests.selenium.Listeners.class, Tests.selenium.IReporter.class})
+
 public class Test2 extends BaseTestCase {
 
     protected final BCommentPage commentPage = new BCommentPage(driver);

@@ -21,7 +21,7 @@ public class Listeners implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println("Testcase failed" + iTestResult.getName());
+        System.out.println("Testcase failed" + iTestResult.getName() + iTestResult.getEndMillis());
 
     }
 
