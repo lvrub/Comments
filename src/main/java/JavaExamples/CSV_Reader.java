@@ -31,7 +31,6 @@ class CSV_Reader {
                 String string_9 = csvRecord.get(8);
                 String string_10 = csvRecord.get(9);
 
-
                 System.out.println("Record No - " + csvRecord.getRecordNumber());
                 System.out.println("---------------");
                 System.out.println("String 1 : " + string_1);

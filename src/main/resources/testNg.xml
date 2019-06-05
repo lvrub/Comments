@@ -4,7 +4,9 @@
 
 <suite name="TestSuite" thread-count="2" parallel="tests">
 
-    <!--<listeners> <listenGIT-->
+    <listeners>
+        <listener class-name="Tests.selenium.Listeners"/>
+    </listeners>
 
     <test name="ChromeTest" thread-count="2">
 

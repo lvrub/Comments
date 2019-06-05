@@ -5,11 +5,12 @@ import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
 import Tests.selenium.BaseTestCase;
 import io.qameta.allure.*;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-
+@Listeners(Tests.selenium.Listeners.class)
 public class Test2 extends BaseTestCase {
 
     protected final BCommentPage commentPage = new BCommentPage(driver);
