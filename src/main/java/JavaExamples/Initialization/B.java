@@ -1,6 +1,9 @@
 package JavaExamples.Initialization;
 
 public class B extends A {
+
+    static String st = A.psv("st_atatic");
+
     static {
         System.out.println("B class.Child Static block 1");
     }

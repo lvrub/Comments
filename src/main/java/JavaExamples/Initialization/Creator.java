@@ -25,7 +25,7 @@ class Engine {
 
 public class Creator {
 
-    public static void main(String arg[]) {
+    public static void main(String[] arg) {
         Engine engine_1 = new Engine(10, 150);
 
         Car1 car_1 = new Car1(new Engine(8, 123.88));
@@ -33,9 +33,9 @@ public class Creator {
         Car1 car_3 = new Car1();
 
 
-        System.out.println(car_1.engine.cylinders + "; " + car_1.engine.power);
-        System.out.println(car_2.engine.cylinders + "; " + car_2.engine.power);
-        System.out.println(car_3.engine);
+        System.out.println("Car 1 with parameters: " + car_1.engine.cylinders + "; " + car_1.engine.power);
+        System.out.println("Car 2 with parameters: " + car_2.engine.cylinders + "; " + car_2.engine.power);
+        System.out.println("Car 3 with parameters: " + car_3.engine);
 
     }
 }

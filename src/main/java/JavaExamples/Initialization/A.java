@@ -42,7 +42,7 @@ public class A {
         System.out.println("A class.Parent Constructor");
     }
 
-    private static String psv(String a) {
+    protected static String psv(String a) {
         System.out.println("A class.Parent Static perem " + a);
         return a;
     }
