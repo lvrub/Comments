@@ -1,13 +1,13 @@
 package JavaExamples;
 
 final class Immutable {
-    final private String string;
+    private String string;
 
     private Immutable(String string) {
         this.string = string;
     }
 
-    public static void main(String arg[]) {
+    public static void main(String[] arg) {
         Immutable immutable = new Immutable("New+++");
         String string = immutable.getString().replaceAll("New", "Old");
         String string1 = immutable.getString().toUpperCase();
@@ -16,9 +16,9 @@ final class Immutable {
         System.out.println(string1);
     }
 
-//    public void setString(String string) {
-//        this.string = string;
-//    }
+    public void setString(String string) {
+        this.string = string;
+    }
 
     public String getString() {
         return string;

@@ -1,4 +1,4 @@
-package JavaExamples.Initialization;
+package JavaExamples;
 
 class Car1 {
     Engine engine;
