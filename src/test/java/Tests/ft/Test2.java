@@ -4,13 +4,14 @@ import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
 import Tests.selenium.BaseTestCase;
+import Tests.selenium.ITestListeners;
 import io.qameta.allure.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-@Listeners({Tests.selenium.Listeners.class, Tests.selenium.IReporter.class})
+@Listeners({ITestListeners.class, Tests.selenium.IReporter.class})
 
 public class Test2 extends BaseTestCase {
 
@@ -21,7 +22,6 @@ public class Test2 extends BaseTestCase {
 
     public Test2() throws IOException {
     }
-
 
     @Test(description = "Verify duplication of comment", groups = "New" /*,dependsOnMethods = "Tests.ft.Test32.test32"*/)
     @Description("This test verifies that uset is able to duplicate a comment")

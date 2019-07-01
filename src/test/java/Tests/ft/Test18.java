@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-//@Listeners(Tests.selenium.Listeners.class)
+//@ITestListeners(Tests.selenium.ITestListeners.class)
 
 
 public class Test18 extends BaseTestCase {

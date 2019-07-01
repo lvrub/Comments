@@ -10,10 +10,12 @@ import java.io.IOException;
 
 public class Test4 extends BaseTestCase {
 
-    BCommentTable commentTable = new BCommentTable(driver);
-    BCommentPage commentPage = new BCommentPage(driver);
+    BCommentTable commentTable;
+    BCommentPage commentPage;
 
     public Test4() throws IOException {
+        commentTable = new BCommentTable(driver);
+        commentPage = new BCommentPage(driver);
     }
 
     @Test(description = "Deleting of a comments")
@@ -21,7 +23,7 @@ public class Test4 extends BaseTestCase {
     @Severity(SeverityLevel.BLOCKER)
     @Epic("Regression Suit")
     @Feature("Comment deletion")
-    public void test4() {
+    public void test4() throws IOException {
 
         commentPage.open()
                 .verifyAlertMessageForDeleting()

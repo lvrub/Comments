@@ -5,7 +5,8 @@
 <suite name="TestSuite" thread-count="2" parallel="tests">
 
     <listeners>
-        <listener class-name="Tests.selenium.Listeners"/>
+        <listener class-name="Tests.selenium.ITestListeners"/>
+        <listener class-name="Tests.selenium.IReporter"/>
     </listeners>
 
     <test name="ChromeTest" thread-count="2">
@@ -30,12 +31,12 @@
         <parameter name="browser" value="Firefox"/>
 
         <classes>
-            <class name="Tests.ft.Test2"></class>
+            <!--            <class name="Tests.ft.Test2"></class>-->
             <!--<class name="Tests.ft.Test4"></class>-->
             <!--<class name="Tests.ft.Test8"></class>-->
     <!--<class name="Tests.ft.Test10"></class>-->
     <!--<class name="Tests.ft.Test18"></class>-->
-            <class name="Tests.ft.Test22"></class>
+            <!--            <class name="Tests.ft.Test22"></class>-->
     <!--<class name="Tests.ft.Test32"></class>-->
         </classes>
 

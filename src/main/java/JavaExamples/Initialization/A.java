@@ -2,6 +2,10 @@ package JavaExamples.Initialization;
 
 public class A {
 
+
+    static {
+        System.out.println("A class. Static first block");
+    }
     public static String a1 = psv("a1");
     public static String a2 = psv("a2");
     public static String a3 = psv("a3");
