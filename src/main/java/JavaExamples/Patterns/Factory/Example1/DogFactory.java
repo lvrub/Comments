@@ -1,4 +1,4 @@
-package JavaExamples.Patterns.Factory;
+package JavaExamples.Patterns.Factory.Example1;
 
 /*Next I’ll define my Java “Factory” class, which in this case is
  a DogFactory class. As you can see from the code below,

@@ -1,4 +1,4 @@
-package JavaExamples.Patterns.Factory;
+package JavaExamples.Patterns.Factory.Example1;
 
 class Poodle implements Dog {
     public void speak() {
