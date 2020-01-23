@@ -17,13 +17,15 @@ public class Maps {
         hmap.put(49, "Ajeet");
         hmap.put(3, "Anuj");
 
+        hmap.put(7, "Changed");
+
 
         Set set = hmap.entrySet();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
-            Map.Entry mentry = (Map.Entry) iterator.next();
-            System.out.print("key is: " + mentry.getKey() + " & Value is: ");
-            System.out.println(mentry.getValue());
+            Map.Entry entry = (Map.Entry) iterator.next();
+            System.out.print("key is: " + entry.getKey() + " & Value is: ");
+            System.out.println(entry.getValue());
         }
 
 

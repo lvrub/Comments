@@ -1,7 +1,7 @@
-package JavaExamples.Patterns.Builder;
+package JavaExamples.Patterns.Builder.Example1;
 
 public class Main {
-    public static void main(String arf[]) {
+    public static void main(String[] arf) {
         final Contact contact = new ContactBuilder()
                 .name("Andre")
                 .surname("Ivanoc")

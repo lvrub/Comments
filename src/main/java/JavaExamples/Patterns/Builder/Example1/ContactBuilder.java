@@ -1,4 +1,4 @@
-package JavaExamples.Patterns.Builder;
+package JavaExamples.Patterns.Builder.Example1;
 
 public class ContactBuilder {
     private String name;
@@ -6,6 +6,7 @@ public class ContactBuilder {
     private String mail;
     private String phone;
     private String address;
+
 
     public ContactBuilder name(final String name) {
         this.name = name;
@@ -44,6 +45,7 @@ public class ContactBuilder {
     public String getAddress() {
         return address;
     }
+
     public Contact build() {
         return new Contact(this);
     }

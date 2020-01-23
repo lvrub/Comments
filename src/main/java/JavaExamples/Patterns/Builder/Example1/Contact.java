@@ -1,4 +1,4 @@
-package JavaExamples.Patterns.Builder;
+package JavaExamples.Patterns.Builder.Example1;
 
 public class Contact {
     private final String name;
@@ -13,7 +13,7 @@ public class Contact {
         this.mail = contactBuilder.getMail();
         this.phone = contactBuilder.getPhone();
         this.address = contactBuilder.getAddress();
-        System.out.println(name + " " + surname);
+        System.out.println(name + " " + surname + " " + mail);
 
     }
 
