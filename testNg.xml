@@ -7,11 +7,11 @@
     <test name="ChromeTest" thread-count="2">
 
         <parameter name="headless" value="false"/>
-        <parameter name="browser" value="Chrome"/>
+        <parameter name="browser" value="CHROME"/>
 
         <classes>
-            <class name="Tests.ft.Test2"/>
-            <!--            <class name="Tests.ft.Test4"/>-->
+            <!--            <class name="Tests.ft.Test2"/>-->
+            <!--                        <class name="Tests.ft.Test4"/>-->
             <!--            <class name="Tests.ft.Test8"/>-->
             <!--            <class name="Tests.ft.Test10"/>-->
             <!--            <class name="Tests.ft.Test18"/>-->
@@ -21,20 +21,20 @@
 
     </test>
 
-    <!--<test name="FirefoxTest" thread-count="2">-->
+    <test name="FirefoxTest" thread-count="2">
 
-    <!--<parameter name="browser" value="Firefox"/>-->
+        <parameter name="browser" value="FIREFOX"/>
 
-    <!--<classes>-->
+        <classes>
     <!--<class name="Tests.ft.Test2"></class>-->
-    <!--<class name="Tests.ft.Test4"></class>-->
-    <!--<class name="Tests.ft.Test8"></class>-->
-    <!--<class name="Tests.ft.Test10"></class>-->
-    <!--<class name="Tests.ft.Test18"></class>-->
-    <!--<class name="Tests.ft.Test22"></class>-->
+            <!--    <class name="Tests.ft.Test4"></class>-->
+            <!--    <class name="Tests.ft.Test8"></class>-->
+            <!--    <class name="Tests.ft.Test10"></class>-->
+            <!--    <class name="Tests.ft.Test18"></class>-->
+            <class name="Tests.ft.Test22"></class>
     <!--<class name="Tests.ft.Test32"></class>-->
-    <!--</classes>-->
+        </classes>
 
-    <!--</test>-->
+    </test>
 
 </suite>

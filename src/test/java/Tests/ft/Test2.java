@@ -3,16 +3,15 @@ package Tests.ft;
 import Tests.object.BCommentPage;
 import Tests.object.BCommentTable;
 import Tests.object.BCommentWindow;
-import Tests.selenium.BaseTestCase;
+import Tests.selenium.DriverManager;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
-public class Test2 extends BaseTestCase {
+public class Test2 extends DriverManager {
 
     protected final BCommentPage commentPage = new BCommentPage(driver);
     protected final BCommentTable commentTable = new BCommentTable(driver);
     protected final BCommentWindow commentWindow = new BCommentWindow(driver);
-
 
     @Test(description = "Verify duplication of comment", groups = "New" /*,dependsOnMethods = "Tests.ft.Test32.test32"*/)
     @Description("This test verifies that uset is able to duplicate a comment")
