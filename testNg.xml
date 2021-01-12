@@ -14,8 +14,7 @@
             <!--                        <class name="Tests.ft.Test4"/>-->
             <!--            <class name="Tests.ft.Test8"/>-->
             <!--            <class name="Tests.ft.Test10"/>-->
-            <!--            <class name="Tests.ft.Test18"/>-->
-            <!--            <class name="Tests.ft.Test22"/>-->
+            <!--            <class name="Tests.ft.Test18"/>--><!--            <class name="Tests.ft.Test22"/>-->
             <!--            <class name="Tests.ft.Test32"/>-->
         </classes>
 
@@ -28,7 +27,7 @@
     <!--<class name="Tests.ft.Test2"></class>-->
             <!--    <class name="Tests.ft.Test4"></class>-->
             <class name="Tests.ft.Test8"></class>
-            <!--    <class name="Tests.ft.Test10"></class>-->
+            <class name="Tests.ft.Test10"></class>
             <!--            <class name="Tests.ft.Test18"></class>-->
             <!--                        <class name="Tests.ft.Test22"></class>-->
     <!--<class name="Tests.ft.Test32"></class>-->
