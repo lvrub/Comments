@@ -30,8 +30,8 @@
             <!--    <class name="Tests.ft.Test4"></class>-->
             <!--    <class name="Tests.ft.Test8"></class>-->
             <!--    <class name="Tests.ft.Test10"></class>-->
-            <!--    <class name="Tests.ft.Test18"></class>-->
-            <class name="Tests.ft.Test22"></class>
+            <class name="Tests.ft.Test18"></class>
+            <!--            <class name="Tests.ft.Test22"></class>-->
     <!--<class name="Tests.ft.Test32"></class>-->
         </classes>
 

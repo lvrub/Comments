@@ -89,9 +89,9 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
-                <configuration>
-                    <outputDirectory>${basedir}/surefireReport</outputDirectory>
-                </configuration>
+                <!--                <configuration>-->
+                <!--                    <outputDirectory>${basedir}/surefireReport</outputDirectory>-->
+                <!--                </configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
